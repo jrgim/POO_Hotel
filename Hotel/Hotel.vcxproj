@@ -130,17 +130,23 @@
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="ClienteEsporadico.h" />
     <ClInclude Include="ClienteHabitual.h" />
+    <ClInclude Include="Doble.h" />
     <ClInclude Include="Habitacion.h" />
     <ClInclude Include="Hotel.h" />
+    <ClInclude Include="Matrimonio.h" />
     <ClInclude Include="Reserva.h" />
+    <ClInclude Include="Simple.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cliente.cpp" />
     <ClCompile Include="ClienteEsporadico.cpp" />
     <ClCompile Include="ClienteHabitual.cpp" />
+    <ClCompile Include="Doble.cpp" />
     <ClCompile Include="Habitacion.cpp" />
     <ClCompile Include="Hotel.cpp" />
+    <ClCompile Include="Matrimonio.cpp" />
     <ClCompile Include="Reserva.cpp" />
+    <ClCompile Include="Simple.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

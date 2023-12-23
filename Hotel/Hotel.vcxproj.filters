@@ -33,6 +33,15 @@
     <ClInclude Include="ClienteEsporadico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Simple.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Doble.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrimonio.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hotel.cpp">
@@ -51,6 +60,15 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ClienteEsporadico.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Simple.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Doble.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrimonio.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
