@@ -6,6 +6,7 @@ private:
 	float Precio;
 public:
 	Simple();
-	Simple(bool, int);
+	Simple(bool, int, int);
+	void ActualizarPrecio(float);
 };
 

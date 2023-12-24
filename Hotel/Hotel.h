@@ -18,6 +18,7 @@ private:
 	Simple* habitacionesSimples;
 	Doble* habitacionesDobles;
 	Matrimonio* habitacionesMatrimonio;
+	Cliente* Clientes;
 public:
 	Hotel();//constructor por defecto, creo que pondre aqui el nombre
 	float consultarPrecioHabitacion(string);
@@ -30,7 +31,12 @@ public:
 	float calcularGanancias(int);
 	void listaHabitaciones(Habitacion);
 	void modificarPrecioHabitacion(string, int);//creo qeu estan repetidas
-	
+
+	//Funciones adicionales
+	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
+
+
+
 	/*
 	* Como cargar estado del hotel y guardar en el hotel
 	*/

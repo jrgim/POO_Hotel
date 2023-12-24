@@ -1,13 +1,14 @@
 #pragma once
 #include "Habitacion.h"
 #include "Cliente.h"
+#include "Hotel.h"
 #include<iostream>
 using namespace std;
 
 class Reserva
 {
 private:
-	Habitacion *TipoHabitacion;//creo que esta mal
+	string tipoHabitacion;
 	Cliente* cliente;
 	int numNoches;
 	string fechaEntrada;

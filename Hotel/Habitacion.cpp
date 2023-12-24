@@ -3,6 +3,9 @@ Habitacion::Habitacion() {
 	disponible = true;
 	huespedes = 0;
 }
-bool Habitacion::Disponibilidad(const Habitacion& habitacionIntroducida) {
-	return habitacionIntroducida.disponible;
+float const Habitacion::ObtenerPrecioHabitacion() {
+	cout << "El precio de la habitacion es de: " << Precio << "€" << endl;
+}
+bool Habitacion::Disponibilidad(){
+	return Disponibilidad;
 }

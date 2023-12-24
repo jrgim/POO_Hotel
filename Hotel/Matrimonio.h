@@ -6,6 +6,7 @@ private:
 	float Precio;
 public:
 	Matrimonio();
-	Matrimonio(bool, int);
+	Matrimonio(bool, int, int);
+	void ActualizarPrecio(float);
 };
 

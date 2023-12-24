@@ -5,13 +5,14 @@ class Habitacion
 {
 	//Hacer array tipos de  habitaciones, no se si un array para todos o uno de cada
 protected:
+	float Precio;
 	bool disponible;
 	int huespedes;
+	int numHabitacion;
 public:
 	Habitacion();//no se si hay que hacer el constructor
-	float ObtenerPrecioHabitacion();//las voy a intentar hacer virtual puro
-	virtual bool Disponibilidad(const Habitacion&);
-	int ObtenerHabitacionLibre();//intenta devolver el numero de la habitacion libre o un objeto de tipo habitacion
-	float ActualizarPrecio(float);
+	float const ObtenerPrecioHabitacion();
+	bool Disponibilidad();//comprueba si la habitacion esta libre
+	virtual void ActualizarPrecio(float) const=0;
 };
 
