@@ -5,11 +5,19 @@ using namespace std;
 #include "Cliente.h"
 #include "Habitacion.h"
 #include "Reserva.h"
+#include "Simple.h"
+#include "Doble.h"
+#include "Matrimonio.h"
+
+#define numMaxHabitaciones 20
 
 class Hotel
 {
 private:
 	string nombreHotel;
+	Simple* habitacionesSimples;
+	Doble* habitacionesDobles;
+	Matrimonio* habitacionesMatrimonio;
 public:
 	Hotel();//constructor por defecto, creo que pondre aqui el nombre
 	float consultarPrecioHabitacion(string);

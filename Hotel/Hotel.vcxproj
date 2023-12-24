@@ -144,6 +144,7 @@
     <ClCompile Include="Doble.cpp" />
     <ClCompile Include="Habitacion.cpp" />
     <ClCompile Include="Hotel.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Matrimonio.cpp" />
     <ClCompile Include="Reserva.cpp" />
     <ClCompile Include="Simple.cpp" />
