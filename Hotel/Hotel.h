@@ -26,13 +26,13 @@ public:
 	float consultarPrecioHabitacion(string);
 	float consultarDescuento(Cliente);
 	void modificarDescuento(Cliente, int);
-	void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);//pq paso cliente?
+	void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	float precioTotal(Cliente, Habitacion, Reserva);
 	Reserva reservarHabitacion();
 	bool eliminarReserva(Reserva);
 	float calcularGanancias(int);
 	void listaHabitaciones(Habitacion);
-	void modificarPrecioHabitacion(string, int);//creo qeu estan repetidas
+	void modificarPrecioHabitacion(string, int);//creo que estan repetidas
 
 	//Funciones adicionales
 	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
