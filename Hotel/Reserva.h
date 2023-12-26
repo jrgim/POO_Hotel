@@ -8,14 +8,17 @@ using namespace std;
 class Reserva
 {
 private:
+	int numClientesHabitacion;
 	string tipoHabitacion;
-	Cliente* Clientes;
+	Cliente* ClientesReserva;
 	int numNoches;
 	string fechaEntrada;
 	int numHabitacion;// se obtiene mediante el metodo de la clase Habitacion
 public:
 	Reserva();
-	Reserva(int, string, int);
+	Reserva(int, string, int, int);
 	float precioTotal();
+	void anadirClientes(Cliente, int);
+	friend istream& operator>>(istream&, Reserva&);
 };
 

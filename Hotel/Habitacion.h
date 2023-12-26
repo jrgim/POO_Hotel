@@ -13,6 +13,6 @@ public:
 	Habitacion();//no se si hay que hacer el constructor
 	float const ObtenerPrecioHabitacion();
 	bool Disponibilidad();//comprueba si la habitacion esta libre
-	virtual void ActualizarPrecio(float) const=0;
+	virtual void ActualizarPrecio(float);// const = 0;
 };
 

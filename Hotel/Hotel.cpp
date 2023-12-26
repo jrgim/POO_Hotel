@@ -3,7 +3,8 @@ Hotel::Hotel() {
 	habitacionesSimples = new Simple[numMaxHabitaciones];
 	habitacionesDobles = new Doble[numMaxHabitaciones];
 	habitacionesMatrimonio = new Matrimonio[numMaxHabitaciones];
-	Clientes = new Cliente[30];
+	Habitaciones = new Habitacion[numMaxHabitaciones];
+	Clientes = new Cliente[maxNumClientes];
 
 }
 int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {
@@ -19,4 +20,8 @@ int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {
 		cout << "Tipo de habitacion introduccido erroneo. 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
 		break;
 	}
+}
+Reserva Hotel::reservarHabitacion() {
+	Reserva nuevaReserva;
+	cin >> nuevaReserva;
 }

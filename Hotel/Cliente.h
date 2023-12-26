@@ -14,5 +14,6 @@ public:
 	void ObtenerDatosCliente(const Cliente&);//Constante no quiero cambiar los datos
 	void CargarDatosCliente(Cliente clienteIntroducir);
 	void ObtenerDescuento(const Cliente&); //No cambiar datos
+	friend istream& operator>>(istream&, Cliente&);
 };
 

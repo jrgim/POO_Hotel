@@ -10,11 +10,13 @@ using namespace std;
 #include "Matrimonio.h"
 
 #define numMaxHabitaciones 20
+#define maxNumClientes 100
 
 class Hotel
 {
 private:
 	string nombreHotel;
+	Habitacion* Habitaciones;
 	Simple* habitacionesSimples;
 	Doble* habitacionesDobles;
 	Matrimonio* habitacionesMatrimonio;
@@ -26,7 +28,7 @@ public:
 	void modificarDescuento(Cliente, int);
 	void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);//pq paso cliente?
 	float precioTotal(Cliente, Habitacion, Reserva);
-	Reserva reservarHabitacion(Cliente, Habitacion, int);
+	Reserva reservarHabitacion();
 	bool eliminarReserva(Reserva);
 	float calcularGanancias(int);
 	void listaHabitaciones(Habitacion);
