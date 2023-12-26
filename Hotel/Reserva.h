@@ -9,7 +9,7 @@ class Reserva
 {
 private:
 	string tipoHabitacion;
-	Cliente* cliente;
+	Cliente* Clientes;
 	int numNoches;
 	string fechaEntrada;
 	int numHabitacion;// se obtiene mediante el metodo de la clase Habitacion
