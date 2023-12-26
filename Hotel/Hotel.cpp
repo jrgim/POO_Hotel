@@ -24,4 +24,5 @@ int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {
 Reserva Hotel::reservarHabitacion() {
 	Reserva nuevaReserva;
 	cin >> nuevaReserva;
+	return nuevaReserva;
 }

@@ -9,7 +9,7 @@ class Reserva
 {
 private:
 	int numClientesHabitacion;
-	string tipoHabitacion;
+	string tipoHabitacion; //0: H.Simple, 1: H.Doble, 2: H.Matrimonio
 	Cliente* ClientesReserva;
 	int numNoches;
 	string fechaEntrada;

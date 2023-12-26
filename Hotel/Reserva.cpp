@@ -23,28 +23,31 @@ istream& operator>>(istream& is, Reserva& reserva) {
 	cout << "\n Introduce el numero de personas a hospedar: ";
 	cin >> numPersonasReserva;
 	auxNumPersonas = numPersonasReserva;
-	if (numPersonasReserva != 0) {
+
+	for (int i =0; i<auxNumPersonas;i++){
 		cout << "Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
-		for (int i = 0; i < 5; i++) {
-			cin >> tipoHabitacion[i];
-			switch (tipoHabitacion[i])
-			{
-			case 0:
-				numPersonasReserva--;
-				break;
-			case 1:
-				numPersonasReserva = numPersonasReserva - 2;
-				break;
-			case 2:
-				numPersonasReserva = numPersonasReserva - 2;
-				break;
-			}
+		cin >> tipoHabitacion[i];
+		switch (tipoHabitacion[i])
+		{
+		case 0:
+			numPersonasReserva--;
+			break;
+		case 1:
+			numPersonasReserva = numPersonasReserva - 2;
+			break;
+		case 2:
+			numPersonasReserva = numPersonasReserva - 2;
+			break;
+		default:
+			cout << "Numero introducido erroneo. Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
+			break;
 		}
 	}
 	for (int i = 0; i < auxNumPersonas; i++) {
 		cout << "Cliente " << i << ": ";
 		cin >> cliente;
-		r.anadirClientes(cliente, i);
+		reserva.anadirClientes(cliente, i);
 	}
 
+	return is;
 }
