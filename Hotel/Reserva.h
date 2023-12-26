@@ -1,6 +1,8 @@
 #pragma once
 #include "Habitacion.h"
 #include "Cliente.h"
+#include "ClienteEsporadico.h"
+#include "ClienteHabitual.h"
 #include "Hotel.h"
 #include<iostream>
 using namespace std;

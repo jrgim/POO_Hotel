@@ -7,6 +7,8 @@ int main() {
 	* Simple HabitacionSimple (false, 1);
 	* cout << HabitacionSimple.Disponibilidad(HabitacionSimple) <<endl;
 	*/
-	
+	Hotel hotel;
+	hotel.reservarHabitacion();
+
 
 }

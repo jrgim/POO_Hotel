@@ -16,14 +16,13 @@ void Reserva::anadirClientes(Cliente cliente, int indice) {
     ClientesReserva[indice] = cliente;
 }
 istream& operator>>(istream& is, Reserva& reserva) {
-	int numPersonasReserva, tipoHabitacion[5], auxNumPersonas;//cambiar 5
+	int numPersonasReserva, tipoHabitacion[5], auxNumPersonas, tipoCliente;//cambiar 5
 	Cliente cliente;
 	cout << "Introduce el numero de noches: ";
 	cin >> reserva.numNoches;
 	cout << "\n Introduce el numero de personas a hospedar: ";
 	cin >> numPersonasReserva;
 	auxNumPersonas = numPersonasReserva;
-
 	for (int i =0; i<auxNumPersonas;i++){
 		cout << "Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
 		cin >> tipoHabitacion[i];
@@ -43,10 +42,25 @@ istream& operator>>(istream& is, Reserva& reserva) {
 			break;
 		}
 	}
+	cout << "Seleccione tipo de cliente: 0. Habitual, 1. Esporadico: ";
+	cin >> tipoCliente;
 	for (int i = 0; i < auxNumPersonas; i++) {
-		cout << "Cliente " << i << ": ";
-		cin >> cliente;
-		reserva.anadirClientes(cliente, i);
+		cout << "Seleccione tipo de cliente: 0. Habitual, 1. Esporadico: ";
+		cin >> tipoCliente;
+		if (tipoCliente == 0) {
+			cout << "Cliente " << i << ": ";
+			cin >> cliente;
+			ClienteHabitual Habitual;
+			cin >> Habitual;
+			reserva.anadirClientes(Habitual, i);
+		}
+		else if (tipoCliente == 1) {
+			cout << "Cliente " << i << ": ";
+			cin >> cliente;
+			ClienteEsporadico Esporadico;
+			reserva.anadirClientes(Esporadico, i);
+		}
+		else cout << "Tipo de cliente incorrecto"<<endl;
 	}
 
 	return is;
