@@ -4,16 +4,14 @@ using namespace std;
 
 class Cliente
 {
-private:
+protected://protected para que puedan acceder las hijas
 	string dni;
 	string nombre;
-	// Poner tipo de cliente
 public:
 	Cliente();
-	Cliente(string, string); //queda poner el tipo de cliente
-	void ObtenerDatosCliente(const Cliente&);//Constante no quiero cambiar los datos
-	void CargarDatosCliente(Cliente clienteIntroducir);
-	void ObtenerDescuento(const Cliente&); //No cambiar datos
+	Cliente(string, string);
+	virtual int ObtenerDescuento() const = 0;
 	friend istream& operator>>(istream&, Cliente&);
+	friend ostream& operator<<(ostream&, const Cliente&);
 };
 
