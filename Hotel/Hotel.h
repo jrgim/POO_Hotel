@@ -11,6 +11,7 @@ using namespace std;
 
 #define numMaxHabitaciones 20
 #define maxNumClientes 100
+#define maxNumReservas 200
 
 class Hotel
 {
@@ -20,7 +21,9 @@ private:
 	Doble* habitacionesDobles;
 	Matrimonio* habitacionesMatrimonio;
 	Cliente* Clientes;
+	Reserva* Reservas;
 	int opcionSeleccionada;
+	int numDeReservas;
 public:
 	Hotel();//constructor por defecto, creo que pondre aqui el nombre
 	void consultarPrecioHabitacion();
@@ -28,7 +31,7 @@ public:
 	void modificarDescuento(Cliente, int);
 	void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	float precioTotal(Cliente, Habitacion, Reserva);
-	Reserva reservarHabitacion();
+	void reservarHabitacion();
 	bool eliminarReserva(Reserva);
 	float calcularGanancias(int);
 	void listaHabitaciones();

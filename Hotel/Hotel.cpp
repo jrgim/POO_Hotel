@@ -4,9 +4,10 @@ Hotel::Hotel() {
 	habitacionesSimples = new Simple[numMaxHabitaciones];
 	habitacionesDobles = new Doble[numMaxHabitaciones];
 	habitacionesMatrimonio = new Matrimonio[numMaxHabitaciones];
-	//Clientes = new Cliente[maxNumClientes];
+	Clientes = new Cliente[maxNumClientes];
+	Reservas = new Reserva[maxNumReservas];
 	opcionSeleccionada = 0;
-
+	numDeReservas = 0;
 }
 
 void Hotel::listaHabitaciones() {
@@ -67,4 +68,10 @@ int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {//tipo de habitacion: 0: 
 			}
 		}
 	}
+}
+
+void Hotel::reservarHabitacion() {
+	cin >> Reservas[numDeReservas];
+	Reservas[numDeReservas].anadirNumHabitacion(ObtenerHabitacionLibre(Reservas[numDeReservas].numTipoHabitacion()));
+	numDeReservas++;
 }
