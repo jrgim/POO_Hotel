@@ -13,7 +13,8 @@ public:
 	float const ObtenerPrecioHabitacion();
 	bool Disponibilidad();//comprueba si la habitacion esta libre
 	virtual void ActualizarPrecio(float) = 0;
-	friend istream& operator>>(istream&, Habitacion&);
+	//friend istream& operator>>(istream&, Habitacion&);
 	friend ostream& operator<<(ostream&, const Habitacion&);
+	void llenarHabitacion(int);
 };
 

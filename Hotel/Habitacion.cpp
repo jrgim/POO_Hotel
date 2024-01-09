@@ -22,9 +22,14 @@ ostream& operator<<(ostream& os, const Habitacion& habitacion) {
 
 	return os;
 }
+void Habitacion::llenarHabitacion(int huespedes) {
+	this->huespedes = huespedes;
+	disponible = false;
+}
+/*
 istream& operator>>(istream& is, Habitacion& habitacion) {
 	cout << "Numero de Huespedes: ";
 	is >> habitacion.huespedes;
 	habitacion.disponible = false;
 	return is;
-}
+}*/

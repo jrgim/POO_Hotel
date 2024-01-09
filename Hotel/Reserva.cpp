@@ -1,10 +1,11 @@
 #include "Reserva.h"
 Reserva::Reserva(){
-    ClientesReserva = new Cliente[numClientesHabitacion];//PUEDE FALLAR
     numNoches=0;
+	ClientesReserva = new Cliente[3];
     fechaEntrada = "10/12/2023";
     numHabitacion= 0;
 	numClientesHabitacion = 0;
+	tipoHabitacion = 3;
 }
 
 Reserva::Reserva(int numNoches, string fechaEntrada, int numHabitacion, int numClientesHabitacion, int tipoHabitacion){
@@ -42,27 +43,20 @@ istream& operator>>(istream& is, Reserva& reserva) {
 		}
 	}
 	if (reserva.numClientesHabitacion == 2) {
-		if (reserva.tipoHabitacion == 1) {
-			cout << "Habitacion pequeña para 2 personas. Introduce el tipo de habitacion mas grande: 1: H.Doble, 2: H.Matrimonio";
+		if (reserva.tipoHabitacion == 0) {
+			cout << "Habitacion pequeña para 2 personas. Introduce el tipo de habitacion mas grande: 1: H.Doble, 2: H.Matrimonio: ";
 			is >> reserva.tipoHabitacion;
 		}
 		while (reserva.tipoHabitacion > 2) {
-			cout << "Numero introducido erroneo. Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
+			cout << "Numero introducido erroneo. Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio: ";
 			is >> reserva.tipoHabitacion;
 		}
 	}
 	
-	
-	cout << "Seleccione tipo de cliente: 0. Habitual, 1. Esporadico: ";
-	cin >> tipoCliente;
-	while (tipoCliente > 1) {//Hacer negativo
-		cout << "Tipo de cliente seleccionado erroneo.\nSeleccione tipo de cliente: 0. Habitual, 1. Esporadico: ";
-		cin >> tipoCliente;
-	}
 	//cambiar esto. solo quiero poner los tipos de habitaciones por numeros
 	//quiero guardar los clientes en el hotel? o en la clase reserva?
 	for (int i = 0; i < reserva.numClientesHabitacion; i++) {
-		cout << "Seleccione tipo de cliente: 0. Habitual, 1. Esporadico: ";
+		cout << "Cliente "<<i<<" seleccione tipo de cliente : 0. Habitual, 1. Esporadico : ";
 		cin >> tipoCliente;
 		if (tipoCliente == 0) {
 			cout << "Cliente " << i << ": ";
@@ -73,9 +67,9 @@ istream& operator>>(istream& is, Reserva& reserva) {
 		}
 		else if (tipoCliente == 1) {
 			cout << "Cliente " << i << ": ";
-			//ClienteEsporadico Esporadico;
-			//cin >> Esporadico;
-			//reserva.anadirClientes(Esporadico, i);
+			ClienteEsporadico Esporadico;
+			cin >> Esporadico;
+			reserva.anadirClientes(Esporadico, i);
 		}
 		else cout << "Tipo de cliente incorrecto"<<endl;
 	}
@@ -84,4 +78,10 @@ istream& operator>>(istream& is, Reserva& reserva) {
 }
 int Reserva::numTipoHabitacion() {
 	return tipoHabitacion;
+}
+void Reserva::anadirNumHabitacion(int numHabitacion) {
+	this->numHabitacion = numHabitacion;
+}
+int Reserva::numHuespedes() {
+	return numClientesHabitacion;
 }

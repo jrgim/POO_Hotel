@@ -20,6 +20,7 @@ public:
 	Reserva(int, string, int, int, int);
 	float precioTotal();
 	int numTipoHabitacion();//chapuza
+	int numHuespedes();
 	void anadirClientes(Cliente, int);
 	void anadirNumHabitacion(int);
 	friend istream& operator>>(istream&, Reserva&);

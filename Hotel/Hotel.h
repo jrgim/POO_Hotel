@@ -9,7 +9,7 @@ using namespace std;
 #include "Doble.h"
 #include "Matrimonio.h"
 
-#define numMaxHabitaciones 20
+#define numMaxHabitaciones 21
 #define maxNumClientes 100
 #define maxNumReservas 200
 

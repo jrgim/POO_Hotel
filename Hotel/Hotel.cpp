@@ -23,10 +23,7 @@ void Hotel::listaHabitaciones() {
 	for (int i = 0; i < numMaxHabitaciones; i++) {
 		cout << "La habitacion numero: " << i + 200 << habitacionesMatrimonio[i];
 	}
-}/*
-void Hotel::reservarHabitacion(int i) {
-	cin >> habitacionesSimples[i];
-}*/
+}
 void Hotel::consultarPrecioHabitacion() {
 	int seleccion = 0;
 	while (seleccion != 1 && seleccion != 2 && seleccion != 3) {
@@ -49,21 +46,21 @@ void Hotel::consultarPrecioHabitacion() {
 int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {//tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio
 	if (tipoHabitacion == 0) {
 		for (int i = 0; i < numMaxHabitaciones; i++) {
-			if (habitacionesSimples[0].Disponibilidad() == false) {
+			if (habitacionesSimples[i].Disponibilidad() == true) {
 				return i;
 			}
 		}
 	}
 	else if (tipoHabitacion == 1) {
 		for (int i = 0; i < numMaxHabitaciones; i++) {
-			if (habitacionesDobles[0].Disponibilidad() == false) {
+			if (habitacionesDobles[i].Disponibilidad() == true) {
 				return i;
 			}
 		}
 	}
 	else if (tipoHabitacion == 2) {
 		for (int i = 0; i < numMaxHabitaciones; i++) {
-			if (habitacionesMatrimonio[0].Disponibilidad() == false) {
+			if (habitacionesMatrimonio[i].Disponibilidad() == true) {
 				return i;
 			}
 		}
@@ -80,6 +77,17 @@ void Hotel::reservarHabitacion() {
 	}
 	else {
 		Reservas[numDeReservas].anadirNumHabitacion(numHabitacion);
+		switch (Reservas[numDeReservas].numTipoHabitacion()) {
+		case 0:
+			habitacionesSimples[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
+			break;
+		case 1:
+			habitacionesDobles[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
+			break;
+		case 2:
+			habitacionesMatrimonio[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
+			break;
+		}
 		numDeReservas++;
 	}
 }
