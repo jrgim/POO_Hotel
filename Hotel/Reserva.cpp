@@ -1,4 +1,4 @@
-#include "Reserva.h"
+/*#include "Reserva.h"
 Reserva::Reserva(){
     ClientesReserva = new Cliente[numClientesHabitacion];
     numNoches=0;
@@ -61,7 +61,7 @@ istream& operator>>(istream& is, Reserva& reserva) {
 			reserva.anadirClientes(Esporadico, i);
 		}
 		else cout << "Tipo de cliente incorrecto"<<endl;
-	}*/
+	}*//*
 
 	return is;
-}
+}*/
