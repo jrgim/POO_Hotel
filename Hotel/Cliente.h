@@ -10,7 +10,7 @@ protected://protected para que puedan acceder las hijas
 public:
 	Cliente();
 	Cliente(string, string);
-	virtual int ObtenerDescuento() /*const= 0*/;//Si pongo const no funciona el array en el hotel
+	int ObtenerDescuento();/*const= 0*///Si pongo const no funciona el array en el hotel
 	friend istream& operator>>(istream&, Cliente&);
 	friend ostream& operator<<(ostream&, const Cliente&);
 };

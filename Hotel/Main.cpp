@@ -2,7 +2,7 @@
 #include "Hotel.h"
 
 int main() {
-	int opcionSeleccionada = 0, i = 0;
+	int opcionSeleccionada = 0;
 	Hotel hotel;
 	while (opcionSeleccionada != 10) {
 		cout << "~~~~~~~~~~~~Menu Recepcionista~~~~~~~~~~~~\n" << endl
@@ -28,9 +28,7 @@ int main() {
 
 			break;
 		case 6://Reservar una habitacion
-			cout << "num Habitacion";
-			cin >> i;
-			//hotel.reservarHabitacion(i);
+			hotel.reservarHabitacion();
 			break;
 		case 7://Calcular ganancias de un mes
 

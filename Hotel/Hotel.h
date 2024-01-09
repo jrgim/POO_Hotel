@@ -20,20 +20,20 @@ private:
 	Simple* habitacionesSimples;
 	Doble* habitacionesDobles;
 	Matrimonio* habitacionesMatrimonio;
-	Cliente* Clientes;
 	Reserva* Reservas;
+	//Cliente* Clientes;
 	int opcionSeleccionada;
 	int numDeReservas;
 public:
 	Hotel();//constructor por defecto, creo que pondre aqui el nombre
 	void consultarPrecioHabitacion();
-	float consultarDescuento(Cliente);
-	void modificarDescuento(Cliente, int);
-	void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
-	float precioTotal(Cliente, Habitacion, Reserva);
+	//float consultarDescuento(Cliente);
+	//void modificarDescuento(Cliente, int);
+	//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
+	//float precioTotal(Cliente, Habitacion, Reserva);
 	void reservarHabitacion();
-	bool eliminarReserva(Reserva);
-	float calcularGanancias(int);
+	//bool eliminarReserva(Reserva);
+	//float calcularGanancias(int);
 	void listaHabitaciones();
 	//Guardar datos
 	//Funciones adicionales

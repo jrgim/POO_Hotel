@@ -4,7 +4,7 @@ Hotel::Hotel() {
 	habitacionesSimples = new Simple[numMaxHabitaciones];
 	habitacionesDobles = new Doble[numMaxHabitaciones];
 	habitacionesMatrimonio = new Matrimonio[numMaxHabitaciones];
-	Clientes = new Cliente[maxNumClientes];
+	//Clientes = new Cliente[maxNumClientes];
 	Reservas = new Reserva[maxNumReservas];
 	opcionSeleccionada = 0;
 	numDeReservas = 0;
@@ -68,10 +68,18 @@ int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {//tipo de habitacion: 0: 
 			}
 		}
 	}
+	return -1;
 }
 
 void Hotel::reservarHabitacion() {
+	int numHabitacion = 0;
 	cin >> Reservas[numDeReservas];
-	Reservas[numDeReservas].anadirNumHabitacion(ObtenerHabitacionLibre(Reservas[numDeReservas].numTipoHabitacion()));
-	numDeReservas++;
+	numHabitacion = ObtenerHabitacionLibre(Reservas[numDeReservas].numTipoHabitacion());
+	if (numHabitacion == -1) {
+		cout << "No se ha encontrado una habitacion libre" << endl;
+	}
+	else {
+		Reservas[numDeReservas].anadirNumHabitacion(numHabitacion);
+		numDeReservas++;
+	}
 }
