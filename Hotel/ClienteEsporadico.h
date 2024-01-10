@@ -6,5 +6,6 @@ public:
 	ClienteEsporadico();
 	ClienteEsporadico(string, string);
 	//int ObtenerDescuento() const;
+	bool nuevoDescuento(int);
 };
 

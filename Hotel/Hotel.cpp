@@ -129,3 +129,13 @@ Cliente Hotel::buscarCliente(string nombreABuscar) {//TODO: corregir
 		}*/
 
 }
+void Hotel::guardar() {
+	Almacenamiento<Simple>almacenamientoHabitacionesS("HabitacionesSimples.txt");
+	almacenamientoHabitacionesS.guardar(habitacionesSimples, numMaxHabitaciones);
+}
+void Hotel::modificarDescuento() {
+	int nuevoDescuento=0;
+	cout << "Introduce el nuevo descuento para los clientes habituales: ";
+	cin >> nuevoDescuento;
+	Clientes.nuevo
+}

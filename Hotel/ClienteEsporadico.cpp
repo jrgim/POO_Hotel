@@ -13,3 +13,7 @@ int ClienteEsporadico::ObtenerDescuento()const {
 	cout << "Los clientes esporadicos no tienen descuento" << endl;
 	return 0;
 }*/
+bool ClienteEsporadico::nuevoDescuento(int descuento) {
+	this->descuento = descuento;
+	return false;
+}

@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-#include<iostream>
+#include<fstream>
 using namespace std;
 
 #include "Cliente.h"
@@ -9,6 +9,7 @@ using namespace std;
 #include "Simple.h"
 #include "Doble.h"
 #include "Matrimonio.h"
+#include "Almacenamiento.h"
 
 #define numMaxHabitaciones 21
 #define maxNumClientes 100
@@ -27,22 +28,20 @@ private:
 	int opcionSeleccionada;
 	int numDeReservas;
 public:
-	Hotel();//constructor por defecto, creo que pondre aqui el nombre
+	Hotel();
 	void consultarPrecioHabitacion();
 	int consultarDescuento(Cliente&);
-	//void modificarDescuento(Cliente, int);
+	void modificarDescuento();//¿Se modifica a uno o a todos?
 	//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	//float precioTotal(Cliente, Habitacion, Reserva);
 	void reservarHabitacion();
 	//bool eliminarReserva(Reserva);
 	//float calcularGanancias(int);
 	void listaHabitaciones();
-	//Guardar datos
-	//Funciones adicionales
 	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
 	Cliente buscarCliente(string);
 	void nuevoCliente(Cliente);
-
+	void guardar();//TODO: Solo carga habitaciones simples y mal. Cambiar sobrecarga
 
 	/*
 	* Como cargar estado del hotel y guardar en el hotel

@@ -7,7 +7,7 @@ int main() {
 	Cliente clientAux;
 	Hotel hotel;
 	while (opcionSeleccionada != 10) {
-		cout << "~~~~~~~~~~~~Menu Recepcionista~~~~~~~~~~~~\n" << endl
+		cout << "~~~~~~~~~~~~Menu Recepcionista hotel~~~~~~~~~~~~\n" << endl
 			<< "1. Consultar precio de una habitacion\n2. Consultar descuento\n3. Modificar descuento para clientes habituales" << endl
 			<< "4. Cambiar precio habitacion\n5. Mostrar precio de una reserva\n6. Reservar Habitacion\n7. Calcular ganancias de un mes" << endl
 			<< "8. Lista de las habitaciones\n9. Guardar\n10. Salir" << endl << "Seleccione una opcion: ";
@@ -21,7 +21,7 @@ int main() {
 			cout << "Nombre del cliente a buscar: ";//hacer cambio todo a mayusculas
 			cin >> aux;
 			clientAux=hotel.buscarCliente(aux);
-			cout << clientAux << hotel.consultarDescuento(clientAux)<<"%\n" << endl;
+			cout << clientAux<<" tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
 			break;
 		case 3://Modificar descuento
 
@@ -42,7 +42,7 @@ int main() {
 			hotel.listaHabitaciones();
 			break;
 		case 9://Guardar
-
+			hotel.guardar();
 			break;
 		case 10:
 			break;

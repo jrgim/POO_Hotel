@@ -3,6 +3,7 @@
 Cliente::Cliente() {
 	dni = "00000000Z";
 	nombre = "/0";
+	descuento = 0;
 }
 
 Cliente::Cliente(string dni, string nombre) {

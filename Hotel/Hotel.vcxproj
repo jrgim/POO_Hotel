@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Almacenamiento.h" />
     <ClInclude Include="Cliente.h" />
     <ClInclude Include="ClienteEsporadico.h" />
     <ClInclude Include="ClienteHabitual.h" />

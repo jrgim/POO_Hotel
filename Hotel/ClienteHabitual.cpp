@@ -13,3 +13,7 @@ int ClienteHabitual::ObtenerDescuento() const {
 	cout << " tiene un deacuento de: " << descuento << "%" << endl;//Igual no hace falta
 	return descuento;
 }*/
+bool ClienteHabitual::nuevoDescuento(int descuento) {
+	this->descuento = descuento;
+	return true;
+}

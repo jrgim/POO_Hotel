@@ -13,6 +13,7 @@ public:
 	Cliente(string, string);
 	int ObtenerDescuento();/*const= 0*///Si lo hago virtual puro no me sale aunque lo haga solo en las hijas. no funciona el array en el hotel
 	bool ComprobarNombre(string);
+	//virtual bool nuevoDescuento(int)const = 0;
 	friend istream& operator>>(istream&, Cliente&);
 	friend ostream& operator<<(ostream&, const Cliente&);
 };
