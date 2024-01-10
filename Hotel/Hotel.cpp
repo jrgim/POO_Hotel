@@ -9,20 +9,30 @@ Hotel::Hotel() {
 	numClientes = 0;
 	opcionSeleccionada = 0;
 	numDeReservas = 0;
+	numerarHabitaciones();
 }
-
+void Hotel::numerarHabitaciones() {
+	for (int i = 0; i < numMaxHabitaciones; i++) {
+		habitacionesSimples[i].numerar(i);
+		habitacionesDobles[i].numerar(i + 100);
+		habitacionesMatrimonio[i].numerar(i + 200);
+	}
+}
 void Hotel::listaHabitaciones() {
 	cout << "~~~~~~~~~~~~~~Habitaciones simples:~~~~~~~~~~~~~~" << endl;
 	for (int i = 0; i < numMaxHabitaciones; i++) {
-		cout << "La habitacion numero: " << i << habitacionesSimples[i];
+		cout << "La habitacion numero: " << i;
+		habitacionesSimples[i].listaHabitaciones();
 	}
 	cout << "\n\n\n~~~~~~~~~~~~~~Habitaciones dobles:~~~~~~~~~~~~~~" << endl;
 	for (int i = 0; i < numMaxHabitaciones; i++) {
-		cout << "La habitacion numero: " << i + 100 << habitacionesDobles[i];
+		cout << "La habitacion numero: " << i + 100;
+		habitacionesDobles[i].listaHabitaciones();
 	}
 	cout << "\n\n\n~~~~~~~~~~~~~~Habitaciones de Matrimonio:~~~~~~~~~~~~~~" << endl;
 	for (int i = 0; i < numMaxHabitaciones; i++) {
-		cout << "La habitacion numero: " << i + 200 << habitacionesMatrimonio[i];
+		cout << "La habitacion numero: " << i + 200;
+		habitacionesMatrimonio[i].listaHabitaciones();
 	}
 }
 void Hotel::consultarPrecioHabitacion() {
@@ -132,10 +142,18 @@ Cliente Hotel::buscarCliente(string nombreABuscar) {//TODO: corregir
 void Hotel::guardar() {
 	Almacenamiento<Simple>almacenamientoHabitacionesS("HabitacionesSimples.txt");
 	almacenamientoHabitacionesS.guardar(habitacionesSimples, numMaxHabitaciones);
+	Almacenamiento<Doble>almacenamientoHabitacionesD("HabitacionesDobles.txt");
+	almacenamientoHabitacionesD.guardar(habitacionesDobles, numMaxHabitaciones);
+	Almacenamiento<Matrimonio>almacenamientoHabitacionesM("HabitacionesMatrimonio.txt");
+	almacenamientoHabitacionesM.guardar(habitacionesMatrimonio, numMaxHabitaciones);
+}
+void Hotel::cargar() {
+	Almacenamiento<Simple>almacenamientoHabitacionesS("HabitacionesSimples.txt");
+	almacenamientoHabitacionesS.cargar(habitacionesSimples, numMaxHabitaciones, 4);
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;
 	cout << "Introduce el nuevo descuento para los clientes habituales: ";
 	cin >> nuevoDescuento;
-	Clientes.nuevo
+	//Clientes.nuevo
 }

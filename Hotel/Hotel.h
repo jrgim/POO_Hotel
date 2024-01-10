@@ -29,9 +29,10 @@ private:
 	int numDeReservas;
 public:
 	Hotel();
+	void numerarHabitaciones();
 	void consultarPrecioHabitacion();
 	int consultarDescuento(Cliente&);
-	void modificarDescuento();//¿Se modifica a uno o a todos?
+	void modificarDescuento();//¿Se modifica a uno o a todos?  SIN TERMINAR
 	//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	//float precioTotal(Cliente, Habitacion, Reserva);
 	void reservarHabitacion();
@@ -42,7 +43,7 @@ public:
 	Cliente buscarCliente(string);
 	void nuevoCliente(Cliente);
 	void guardar();//TODO: Solo carga habitaciones simples y mal. Cambiar sobrecarga
-
+	void cargar();
 	/*
 	* Como cargar estado del hotel y guardar en el hotel
 	*/
