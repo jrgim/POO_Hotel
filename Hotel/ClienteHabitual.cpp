@@ -3,6 +3,7 @@ ClienteHabitual::ClienteHabitual() {
 	dni = "00000000Z";
 	nombre = "/0";
 	descuento = 10;
+	tipoCliente = 0;
 }
 ClienteHabitual::ClienteHabitual(string dni, string nombre, int descuento) {
 	this->dni = dni;

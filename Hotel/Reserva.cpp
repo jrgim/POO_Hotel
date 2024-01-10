@@ -46,7 +46,7 @@ void Reserva::nuevaReserva() {
 	}
 	if (numClientesHabitacion == 2) {
 		if (tipoHabitacion == 0) {
-			cout << "Habitacion pequeña para 2 personas. Introduce el tipo de habitacion mas grande: 1: H.Doble, 2: H.Matrimonio: ";
+			cout << "Habitacion pequena para 2 personas. Introduce el tipo de habitacion mas grande: 1: H.Doble, 2: H.Matrimonio: ";
 			cin >> tipoHabitacion;
 		}
 		while (tipoHabitacion > 2) {
@@ -64,13 +64,13 @@ void Reserva::nuevaReserva() {
 			cout << "Cliente " << i << ": ";
 			//cin >> cliente;
 			ClienteHabitual Habitual;
-			cin >> Habitual;
+			Habitual.nuevoCliente();
 			anadirClientes(Habitual, i);
 		}
 		else if (tipoCliente == 1) {
 			cout << "Cliente " << i << ": ";
 			ClienteEsporadico Esporadico;
-			cin >> Esporadico;
+			Esporadico.nuevoCliente();
 			anadirClientes(Esporadico, i);
 		}
 		else cout << "Tipo de cliente incorrecto" << endl;

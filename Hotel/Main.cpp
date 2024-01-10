@@ -21,7 +21,8 @@ int main() {
 			cout << "Nombre del cliente a buscar: ";//hacer cambio todo a mayusculas
 			cin >> aux;
 			clientAux=hotel.buscarCliente(aux);
-			cout << clientAux<<" tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
+			clientAux.leerCliente();
+			cout << " tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
 			break;
 		case 3://Modificar descuento
 

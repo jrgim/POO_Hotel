@@ -150,6 +150,9 @@ void Hotel::guardar() {
 	//Guarda Reservas
 	Almacenamiento<Reserva>almacenamientoReservas("Reservas.txt");
 	almacenamientoReservas.guardar(Reservas, maxNumReservas);
+	//Guarda Clientes
+	Almacenamiento<Cliente>almacenamientoClientes("Clientes.txt");
+	almacenamientoClientes.guardar(Clientes, maxNumClientes);
 }
 void Hotel::cargar() {
 	//Carga Habitaciones
@@ -162,6 +165,9 @@ void Hotel::cargar() {
 	//Carga Reservas
 	Almacenamiento<Reserva>almacenamientoReservas("Reservas.txt");
 	almacenamientoReservas.cargar(Reservas, maxNumReservas);
+	//Carga Clientes
+	Almacenamiento<Cliente>almacenamientoClientes("Clientes.txt");
+	almacenamientoClientes.cargar(Clientes, maxNumClientes);
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;

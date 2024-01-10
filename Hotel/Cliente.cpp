@@ -4,6 +4,7 @@ Cliente::Cliente() {
 	dni = "00000000Z";
 	nombre = "/0";
 	descuento = 0;
+	tipoCliente = -1;
 }
 
 Cliente::Cliente(string dni, string nombre) {
@@ -12,14 +13,11 @@ Cliente::Cliente(string dni, string nombre) {
 }
 
 istream& operator>>(istream& is, Cliente& client) {
-	cout << "Introduce el nombre: ";
-	is >> client.nombre;
-	cout << "Introduce el dni: ";
-	is >> client.dni;
+	is >> client.nombre >> client.dni >> client.tipoCliente;
 	return is;
 }
 ostream& operator<<(ostream& os, const Cliente& client) {
-	os << "Nombre del cliente: " << client.nombre << " con DNI " << client.dni;
+	os << client.nombre << "\n" << client.dni << "\n" << client.tipoCliente;
 	return os;
 }
 bool Cliente::ComprobarNombre(string nombreABuscar) {
@@ -31,4 +29,13 @@ bool Cliente::ComprobarNombre(string nombreABuscar) {
 }
 int Cliente::ObtenerDescuento() {
 	return descuento;
+}
+void Cliente::nuevoCliente() {
+	cout << "Introduce el nombre: ";
+	cin >> nombre;
+	cout << "Introduce el dni: ";
+	cin >> dni;
+}
+void Cliente::leerCliente() {
+	cout << "Nombre del cliente: " << nombre << " con DNI " << dni;
 }

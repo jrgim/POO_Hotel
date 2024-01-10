@@ -3,6 +3,7 @@
 ClienteEsporadico::ClienteEsporadico() {
 	dni = "00000000Z";
 	nombre = "/0";
+	tipoCliente = 1;
 }
 ClienteEsporadico::ClienteEsporadico(string dni, string nombre) {
 	this->dni = dni;
