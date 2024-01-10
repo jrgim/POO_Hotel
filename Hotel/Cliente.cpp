@@ -21,3 +21,13 @@ ostream& operator<<(ostream& os, const Cliente& client) {
 	os << "Nombre del cliente: " << client.nombre << " con DNI " << client.dni;
 	return os;
 }
+bool Cliente::ComprobarNombre(string nombreABuscar) {
+	string nombreACorregir;
+	if (nombre == nombreABuscar) {
+		return true;
+	}
+	else return false;
+}
+int Cliente::ObtenerDescuento() {
+	return descuento;
+}

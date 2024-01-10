@@ -23,6 +23,7 @@ public:
 	int numHuespedes();
 	void anadirClientes(Cliente, int);
 	void anadirNumHabitacion(int);
+	Cliente Clientes(int);
 	friend istream& operator>>(istream&, Reserva&);
 };
 

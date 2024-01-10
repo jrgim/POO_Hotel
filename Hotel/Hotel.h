@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<iostream>
 using namespace std;
 
 #include "Cliente.h"
@@ -21,13 +22,14 @@ private:
 	Doble* habitacionesDobles;
 	Matrimonio* habitacionesMatrimonio;
 	Reserva* Reservas;
-	//Cliente* Clientes;
+	Cliente* Clientes;
+	int numClientes;
 	int opcionSeleccionada;
 	int numDeReservas;
 public:
 	Hotel();//constructor por defecto, creo que pondre aqui el nombre
 	void consultarPrecioHabitacion();
-	//float consultarDescuento(Cliente);
+	int consultarDescuento(Cliente&);
 	//void modificarDescuento(Cliente, int);
 	//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	//float precioTotal(Cliente, Habitacion, Reserva);
@@ -38,7 +40,8 @@ public:
 	//Guardar datos
 	//Funciones adicionales
 	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
-
+	Cliente buscarCliente(string);
+	void nuevoCliente(Cliente);
 
 
 	/*

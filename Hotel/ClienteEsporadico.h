@@ -5,6 +5,6 @@ class ClienteEsporadico : public Cliente
 public:
 	ClienteEsporadico();
 	ClienteEsporadico(string, string);
-	int ObtenerDescuento() const;
+	//int ObtenerDescuento() const;
 };
 

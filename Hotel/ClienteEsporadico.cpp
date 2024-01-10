@@ -8,8 +8,8 @@ ClienteEsporadico::ClienteEsporadico(string dni, string nombre) {
 	this->dni = dni;
 	this->nombre = nombre;
 }
-
+/*
 int ClienteEsporadico::ObtenerDescuento()const {
 	cout << "Los clientes esporadicos no tienen descuento" << endl;
 	return 0;
-}
+}*/

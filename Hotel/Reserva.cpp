@@ -85,3 +85,6 @@ void Reserva::anadirNumHabitacion(int numHabitacion) {
 int Reserva::numHuespedes() {
 	return numClientesHabitacion;
 }
+Cliente Reserva::Clientes(int indice) {
+	return ClientesReserva[indice];
+}

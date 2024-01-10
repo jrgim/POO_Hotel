@@ -3,6 +3,8 @@
 
 int main() {
 	int opcionSeleccionada = 0;
+	string aux;
+	Cliente clientAux;
 	Hotel hotel;
 	while (opcionSeleccionada != 10) {
 		cout << "~~~~~~~~~~~~Menu Recepcionista~~~~~~~~~~~~\n" << endl
@@ -16,7 +18,10 @@ int main() {
 			hotel.consultarPrecioHabitacion();
 			break;
 		case 2://Consultar descuento
-
+			cout << "Nombre del cliente a buscar: ";//hacer cambio todo a mayusculas
+			cin >> aux;
+			clientAux=hotel.buscarCliente(aux);
+			cout << clientAux << hotel.consultarDescuento(clientAux)<<"%\n" << endl;
 			break;
 		case 3://Modificar descuento
 

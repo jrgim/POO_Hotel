@@ -4,8 +4,9 @@ Hotel::Hotel() {
 	habitacionesSimples = new Simple[numMaxHabitaciones];
 	habitacionesDobles = new Doble[numMaxHabitaciones];
 	habitacionesMatrimonio = new Matrimonio[numMaxHabitaciones];
-	//Clientes = new Cliente[maxNumClientes];
+	Clientes = new Cliente[maxNumClientes];
 	Reservas = new Reserva[maxNumReservas];
+	numClientes = 0;
 	opcionSeleccionada = 0;
 	numDeReservas = 0;
 }
@@ -80,14 +81,51 @@ void Hotel::reservarHabitacion() {
 		switch (Reservas[numDeReservas].numTipoHabitacion()) {
 		case 0:
 			habitacionesSimples[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
+			nuevoCliente(Reservas[numDeReservas].Clientes(0));
 			break;
 		case 1:
 			habitacionesDobles[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
+			nuevoCliente(Reservas[numDeReservas].Clientes(0));
+			nuevoCliente(Reservas[numDeReservas].Clientes(1));
 			break;
 		case 2:
 			habitacionesMatrimonio[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
+			nuevoCliente(Reservas[numDeReservas].Clientes(0));
+			nuevoCliente(Reservas[numDeReservas].Clientes(1));
 			break;
 		}
 		numDeReservas++;
 	}
+}
+int Hotel::consultarDescuento(Cliente& const cliente) {
+	return cliente.ObtenerDescuento();
+}
+
+void Hotel::nuevoCliente(Cliente client) {
+	Clientes[numClientes] = client;
+	numClientes++;
+}
+
+Cliente Hotel::buscarCliente(string nombreABuscar) {//TODO: corregir
+	int i = 0;
+	while (Clientes[i].ComprobarNombre(nombreABuscar) == false) {
+		i++;
+		if (i == maxNumClientes) {
+			cout << "No se ha encontrado el cliente. Introduzca otro nombre: " << endl;
+			cin >> nombreABuscar;
+			i = 0;
+		}
+	}
+	return Clientes[i];
+
+	/*OTRA FORMA MAL
+	for (int i = 0; i < maxNumClientes; i++)
+		if(Clientes[i].ComprobarNombre(nombreABuscar)){
+			return Clientes[i];
+		}
+		else {
+			cout << "No se ha encontrado el cliente. Introduzca otro nombre: " << endl;
+			cin >> nombreABuscar;
+		}*/
+
 }

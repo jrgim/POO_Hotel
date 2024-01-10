@@ -3,10 +3,10 @@
 class ClienteHabitual : public Cliente
 {
 private:
-	int descuento;
+	//int descuento;
 public:
 	ClienteHabitual();
 	ClienteHabitual(string, string, int);
-	int ObtenerDescuento() const;
+	//int ObtenerDescuento() const;
 };
 
