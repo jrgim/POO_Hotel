@@ -23,7 +23,9 @@ public:
 	int numHuespedes();
 	void anadirClientes(Cliente, int);
 	void anadirNumHabitacion(int);
+	void nuevaReserva();
 	Cliente Clientes(int);
 	friend istream& operator>>(istream&, Reserva&);
+	friend ostream& operator<<(ostream&, const Reserva&);
 };
 

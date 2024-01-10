@@ -81,7 +81,7 @@ int Hotel::ObtenerHabitacionLibre(int tipoHabitacion) {//tipo de habitacion: 0: 
 
 void Hotel::reservarHabitacion() {
 	int numHabitacion = 0;
-	cin >> Reservas[numDeReservas];
+	Reservas[numDeReservas].nuevaReserva();
 	numHabitacion = ObtenerHabitacionLibre(Reservas[numDeReservas].numTipoHabitacion());
 	if (numHabitacion == -1) {
 		cout << "No se ha encontrado una habitacion libre" << endl;
@@ -147,6 +147,9 @@ void Hotel::guardar() {
 	almacenamientoHabitacionesD.guardar(habitacionesDobles, numMaxHabitaciones);
 	Almacenamiento<Matrimonio>almacenamientoHabitacionesM("HabitacionesMatrimonio.txt");
 	almacenamientoHabitacionesM.guardar(habitacionesMatrimonio, numMaxHabitaciones);
+	//Guarda Reservas
+	Almacenamiento<Reserva>almacenamientoReservas("Reservas.txt");
+	almacenamientoReservas.guardar(Reservas, maxNumReservas);
 }
 void Hotel::cargar() {
 	//Carga Habitaciones
@@ -156,6 +159,9 @@ void Hotel::cargar() {
 	almacenamientoHabitacionesD.cargar(habitacionesDobles, numMaxHabitaciones);
 	Almacenamiento<Matrimonio>almacenamientoHabitacionesM("HabitacionesMatrimonio.txt");
 	almacenamientoHabitacionesM.cargar(habitacionesMatrimonio, numMaxHabitaciones);
+	//Carga Reservas
+	Almacenamiento<Reserva>almacenamientoReservas("Reservas.txt");
+	almacenamientoReservas.cargar(Reservas, maxNumReservas);
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;

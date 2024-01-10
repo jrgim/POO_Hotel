@@ -18,63 +18,72 @@ Reserva::Reserva(int numNoches, string fechaEntrada, int numHabitacion, int numC
 void Reserva::anadirClientes(Cliente cliente, int indice) {
     ClientesReserva[indice] = cliente;
 }
-istream& operator>>(istream& is, Reserva& reserva) {
+
+
+void Reserva::nuevaReserva() {
 	int tipoCliente;
 	Cliente cliente;
 	cout << "Introduce el numero de noches: ";
-	is >> reserva.numNoches;
+	cin >> numNoches;
 	cout << "\nIntroduce la fecha de entrada: ";
-	is >> reserva.fechaEntrada;
+	cin >> fechaEntrada;
 	cout << "\n Introduce el numero de personas a hospedar: ";
-	is >> reserva.numClientesHabitacion;
-	while (reserva.numClientesHabitacion >= 3) {
+	cin >> numClientesHabitacion;
+	while (numClientesHabitacion >= 3) {
 		cout << "El numero maximo de personas por habitacion es de 2 personas." << endl;
 		cout << "Introduce el numero de personas a hospedar : ";
-		is >> reserva.numClientesHabitacion;
+		cin >> numClientesHabitacion;
 	}
 
 	cout << "Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
-	is >> reserva.tipoHabitacion;
+	cin >> tipoHabitacion;
 
-	if (reserva.numClientesHabitacion == 1) {//Opcion solo 1 Huesped
-		while (reserva.tipoHabitacion > 2) {
+	if (numClientesHabitacion == 1) {//Opcion solo 1 Huesped
+		while (tipoHabitacion > 2) {
 			cout << "Numero introducido erroneo. Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio" << endl;
-			is >> reserva.tipoHabitacion;
+			cin >> tipoHabitacion;
 		}
 	}
-	if (reserva.numClientesHabitacion == 2) {
-		if (reserva.tipoHabitacion == 0) {
+	if (numClientesHabitacion == 2) {
+		if (tipoHabitacion == 0) {
 			cout << "Habitacion pequeña para 2 personas. Introduce el tipo de habitacion mas grande: 1: H.Doble, 2: H.Matrimonio: ";
-			is >> reserva.tipoHabitacion;
+			cin >> tipoHabitacion;
 		}
-		while (reserva.tipoHabitacion > 2) {
+		while (tipoHabitacion > 2) {
 			cout << "Numero introducido erroneo. Introduce el tipo de habitacion: 0: H.Simple, 1: H.Doble, 2: H.Matrimonio: ";
-			is >> reserva.tipoHabitacion;
+			cin >> tipoHabitacion;
 		}
 	}
-	
+
 	//cambiar esto. solo quiero poner los tipos de habitaciones por numeros
 	//quiero guardar los clientes en el hotel? o en la clase reserva?
-	for (int i = 0; i < reserva.numClientesHabitacion; i++) {
-		cout << "Cliente "<<i<<" seleccione tipo de cliente : 0. Habitual, 1. Esporadico : ";
+	for (int i = 0; i < numClientesHabitacion; i++) {
+		cout << "Cliente " << i << " seleccione tipo de cliente : 0. Habitual, 1. Esporadico : ";
 		cin >> tipoCliente;
 		if (tipoCliente == 0) {
 			cout << "Cliente " << i << ": ";
 			//cin >> cliente;
 			ClienteHabitual Habitual;
 			cin >> Habitual;
-			reserva.anadirClientes(Habitual, i);
+			anadirClientes(Habitual, i);
 		}
 		else if (tipoCliente == 1) {
 			cout << "Cliente " << i << ": ";
 			ClienteEsporadico Esporadico;
 			cin >> Esporadico;
-			reserva.anadirClientes(Esporadico, i);
+			anadirClientes(Esporadico, i);
 		}
-		else cout << "Tipo de cliente incorrecto"<<endl;
+		else cout << "Tipo de cliente incorrecto" << endl;
 	}
-
+}
+//Tenia puesto en la sobrecarga de >> lo que hace la funcion nuevaReserva, pero he preferido cambiarlo para poder cargar los datos desde los archivos.
+istream& operator>>(istream& is, Reserva& reserva) {//TODO: Como guardar los clientes o seleccionarlos
+	is >> reserva.numClientesHabitacion >> reserva.tipoHabitacion >> reserva.numNoches >> reserva.fechaEntrada >> reserva.numHabitacion;
 	return is;
+}
+ostream& operator<<(ostream& os, const Reserva& reserva) {
+	os << reserva.numClientesHabitacion << "\n" << reserva.tipoHabitacion << "\n" << reserva.numNoches << "\n" << reserva.fechaEntrada << "\n" << reserva.numHabitacion;
+	return os;
 }
 int Reserva::numTipoHabitacion() {
 	return tipoHabitacion;
