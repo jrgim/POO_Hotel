@@ -140,6 +140,7 @@ Cliente Hotel::buscarCliente(string nombreABuscar) {//TODO: corregir
 
 }
 void Hotel::guardar() {
+	//Guarda Habitaciones
 	Almacenamiento<Simple>almacenamientoHabitacionesS("HabitacionesSimples.txt");
 	almacenamientoHabitacionesS.guardar(habitacionesSimples, numMaxHabitaciones);
 	Almacenamiento<Doble>almacenamientoHabitacionesD("HabitacionesDobles.txt");
@@ -148,8 +149,13 @@ void Hotel::guardar() {
 	almacenamientoHabitacionesM.guardar(habitacionesMatrimonio, numMaxHabitaciones);
 }
 void Hotel::cargar() {
+	//Carga Habitaciones
 	Almacenamiento<Simple>almacenamientoHabitacionesS("HabitacionesSimples.txt");
-	almacenamientoHabitacionesS.cargar(habitacionesSimples, numMaxHabitaciones, 4);
+	almacenamientoHabitacionesS.cargar(habitacionesSimples, numMaxHabitaciones);
+	Almacenamiento<Doble>almacenamientoHabitacionesD("HabitacionesDobles.txt");
+	almacenamientoHabitacionesD.cargar(habitacionesDobles, numMaxHabitaciones);
+	Almacenamiento<Matrimonio>almacenamientoHabitacionesM("HabitacionesMatrimonio.txt");
+	almacenamientoHabitacionesM.cargar(habitacionesMatrimonio, numMaxHabitaciones);
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;

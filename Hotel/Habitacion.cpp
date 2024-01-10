@@ -22,9 +22,6 @@ void Habitacion::llenarHabitacion(int huespedes) {
 }
 //MAL
 istream& operator>>(istream& is, Habitacion& habitacion) {
-	for (int i = 0; i < 4; i++) {
-		
-	}
 	is>> habitacion.numHabitacion >> habitacion.disponible >> habitacion.huespedes >> habitacion.Precio;
 	return is;
 }

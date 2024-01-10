@@ -14,7 +14,7 @@ public:
 	Almacenamiento<T>();
 	Almacenamiento<T>(string);
 	void guardar(T clase[], int);
-	void cargar(T clase[], int, int);
+	void cargar(T clase[], int);
 };
 
 template<class T> Almacenamiento<T>::Almacenamiento<T>() {
@@ -37,14 +37,11 @@ template<class T> void Almacenamiento<T>::guardar(T datosAnadir[], int numMax) {
 		cout << "No se ha podido abrir el archivo." << endl;//cambiar cerr
 	}
 }
-template<class T> void Almacenamiento<T>::cargar(T datosCargar[], int numMax, int numAtributos) {
+template<class T> void Almacenamiento<T>::cargar(T datosCargar[], int numMax) {
 	ifstream archivoEntrada(nombreArchivo);
 	if (archivoEntrada.is_open()) {
-		for (int i = 0; i < numMax; i+=4) {
-			archivoEntrada >> datosCargar[i];/*
-			if (!(archivoEntrada >> datosCargar[i])) {
-				cerr << "Error al leer desde archivo." << endl;
-			}*/
+		for (int i = 0; i < numMax && !archivoEntrada.eof(); i++) {
+			archivoEntrada >> datosCargar[i];
 		}
 	}
 	else {
