@@ -1,6 +1,7 @@
 #pragma once
 #include<iostream>
 #include<fstream>
+#include<Windows.h>
 using namespace std;
 
 #include "Cliente.h"
@@ -14,9 +15,11 @@ using namespace std;
 #define numMaxHabitaciones 21
 #define maxNumClientes 100
 #define maxNumReservas 200
+#define color SetConsoleTextAttribute
 
 class Hotel
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 private:
 	string nombreHotel;
 	Simple* habitacionesSimples;
@@ -31,9 +34,9 @@ public:
 	Hotel();
 	void numerarHabitaciones();
 	void consultarPrecioHabitacion();
+	void cambiarPrecioHabitacion();//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	int consultarDescuento(Cliente&);
 	void modificarDescuento();//¿Se modifica a uno o a todos?  SIN TERMINAR
-	//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
 	//float precioTotal(Cliente, Habitacion, Reserva);
 	void reservarHabitacion();
 	//bool eliminarReserva(Reserva);

@@ -54,7 +54,7 @@ int main() {
 
 			break;
 		case 4://Cambiar precio habitacion
-
+			hotel.cambiarPrecioHabitacion();
 			break;
 		case 5://Mostrar precio de una reserva
 
