@@ -34,7 +34,7 @@ public:
 	Hotel();
 	void numerarHabitaciones();
 	void consultarPrecioHabitacion();
-	void cambiarPrecioHabitacion();//void cambioPrecioHabitacion(Cliente, Habitacion, Reserva);
+	void cambiarPrecioHabitacion();
 	int consultarDescuento(Cliente&);
 	void modificarDescuento();//¿Se modifica a uno o a todos?  SIN TERMINAR
 	//float precioTotal(Cliente, Habitacion, Reserva);

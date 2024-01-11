@@ -178,42 +178,44 @@ void Hotel::modificarDescuento() {
 
 
 
-void Hotel::cambiarPrecioHabitacion() {//hacer while num erroneo
+void Hotel::cambiarPrecioHabitacion() {
 	int seleccion = -1;
 	float nPrecioSimple = 0, nPrecioDoble = 0, nPrecioMatrimonio = 0;
 	color(hConsole, 10);
 	cout << "Introduzca el tipo de Habitacion que desea cambiar el precio: 0. Simple, 1. Doble, 2. Matrimonio: ";
-	cin >> seleccion;
-	switch (seleccion)
-	{
-	case 0:
-		color(hConsole, 1);
-		cout << "\nIntroduce el nuevo precio para las habitaciones Simples: ";
-		cin >> nPrecioSimple;
-		for (int i = 0; i < numMaxHabitaciones; i++) {
-			habitacionesSimples[i].ActualizarPrecio(nPrecioSimple);
-		}
-		break;
-	case 1:
-		color(hConsole, 2);
-		cout << "\nIntroduce el nuevo precio para las habitaciones Dobles: ";
-		cin >> nPrecioDoble;
-		for (int i = 0; i < numMaxHabitaciones; i++) {
-			habitacionesDobles[i].ActualizarPrecio(nPrecioDoble);
-		}
-		break;
-	case 2:
-		color(hConsole, 3);
-		cout << "\nIntroduce el nuevo precio para las habitaciones de Matrimonio: ";
-		cin >> nPrecioMatrimonio;
-		for (int i = 0; i < numMaxHabitaciones; i++) {
-			habitacionesMatrimonio[i].ActualizarPrecio(nPrecioMatrimonio);
-		}
-		break;
-	default:
-		cout << "Numero introducido erroneo. Introduzca el tipo de Habitacion: 0. Simple, 1. Doble, 2. Matrimonio" << endl;
+	while (seleccion != 0 && seleccion != 1 && seleccion != 2) {
 		cin >> seleccion;
-		break;
+		switch (seleccion)
+		{
+		case 0:
+			color(hConsole, 1);
+			cout << "\nIntroduce el nuevo precio para las habitaciones Simples: ";
+			cin >> nPrecioSimple;
+			for (int i = 0; i < numMaxHabitaciones; i++) {
+				habitacionesSimples[i].ActualizarPrecio(nPrecioSimple);
+			}
+			break;
+		case 1:
+			color(hConsole, 2);
+			cout << "\nIntroduce el nuevo precio para las habitaciones Dobles: ";
+			cin >> nPrecioDoble;
+			for (int i = 0; i < numMaxHabitaciones; i++) {
+				habitacionesDobles[i].ActualizarPrecio(nPrecioDoble);
+			}
+			break;
+		case 2:
+			color(hConsole, 3);
+			cout << "\nIntroduce el nuevo precio para las habitaciones de Matrimonio: ";
+			cin >> nPrecioMatrimonio;
+			for (int i = 0; i < numMaxHabitaciones; i++) {
+				habitacionesMatrimonio[i].ActualizarPrecio(nPrecioMatrimonio);
+			}
+			break;
+		default:
+			color(hConsole, 4);
+			cout << "\nNumero introducido erroneo. Introduzca el tipo de Habitacion: 0. Simple, 1. Doble, 2. Matrimonio: ";
+			break;
+		}
 	}
 	cout << "\nPrecio actualizado." << endl;
 }
