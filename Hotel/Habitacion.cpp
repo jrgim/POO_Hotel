@@ -3,10 +3,10 @@ Habitacion::Habitacion() {
 	disponible = true;
 	huespedes = 0;
 	Precio = 100;
-	numHabitacion = 0;//igual quitar, se calculara con el indice del array
+	numHabitacion = 0;
 }
 float const Habitacion::ObtenerPrecioHabitacion() {
-	cout << "El precio de la habitacion es de: " << Precio << "Euros\n\n" << endl;//igual quitar
+	cout << "El precio de la habitacion X noche es de: " << Precio << "Euros." << endl;//igual quitar
 	return Precio;
 }
 bool Habitacion::Disponibilidad() {

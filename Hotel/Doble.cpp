@@ -10,3 +10,6 @@ Doble::Doble(bool disponible, int huespedes, int numHabitacion) {
 void Doble::ActualizarPrecio(float nuevoPrecio) {
 	Precio = nuevoPrecio;
 }
+void Doble::numerar(int num){
+	numHabitacion = (num+100);
+}

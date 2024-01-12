@@ -10,71 +10,77 @@ int main() {
 	Cliente clientAux;
 	Hotel hotel;
 
-	while (opcionSeleccionada != 11) {
+	while (opcionSeleccionada != 12) {
 		color(hConsole, 1);
 		cout << "~~~~~~~~~~~~Menu Recepcionista hotel~~~~~~~~~~~~\n" << endl;
 		color(hConsole, 2);
-		cout << "1. Consultar precio de una habitacion\n";
+		cout << "1. Lista de las habitaciones\n";
 		color(hConsole, 3);
-		cout << "2. Consultar descuento\n";
+		cout << "2. Consultar el precio de una habitacion\n";
 		color(hConsole, 5);
-		cout << "3. Modificar descuento para clientes habituales" << endl;
+		cout << "3. Modificar el precio de una habitacion" << endl;
 		color(hConsole, 6);
-		cout << "4. Cambiar precio habitacion\n";
+		cout << "4. Consultar descuento\n";
 		color(hConsole, 7);
-		cout << "5. Mostrar precio de una reserva\n";
+		cout << "5. Modificar descuento\n";
 		color(hConsole, 9);
-		cout << "6. Reservar Habitacion\n";
+		cout << "6. Consultar precio total de un cliente\n";
 		color(hConsole, 10);
-		cout << "7. Calcular ganancias de un mes" << endl;
+		cout << "7. Nueva reserva" << endl;
 		color(hConsole, 1);
-		cout << "8. Lista de las habitaciones\n";
+		cout << "8. Eliminar reserva\n";
 		color(hConsole, 2);
-		cout << "9. Guardar\n";
+		cout << "9. Calcular ganancias en un mes\n";
+		color(hConsole, 6);
+		cout << "10. Guardar\n";
 		color(hConsole, 3);
-		cout << "10. Cargar datos\n";
+		cout << "11. Cargar datos\n";
 		color(hConsole, 4);
-		cout << "11. Salir" << endl;
+		cout << "12. Salir" << endl;
 		color(hConsole, 3);
 		cout << "Seleccione una opcion: ";
 		cin >> opcionSeleccionada;
+
+
 		switch (opcionSeleccionada)
 		{
-		case 1://Consultar precio Habitacion
+		case 1: // Lista de las habitaciones
+			hotel.listaHabitaciones();
+			break;
+		case 2: //Consultar el precio de una habitacion
 			hotel.consultarPrecioHabitacion();
 			break;
-		case 2://Consultar descuento
-			cout << "Nombre del cliente a buscar: ";//hacer cambio todo a mayusculas
-			cin >> aux;
-			clientAux=hotel.buscarCliente(aux);
+		case 3: //Modificar el precio de una habitacion
+			hotel.cambiarPrecioHabitacion();
+			break;
+		case 4: //Consultar descuento
+			clientAux = hotel.buscarCliente();
 			clientAux.leerCliente();
 			cout << " tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
 			break;
-		case 3://Modificar descuento
+		case 5: //Modificar descuento
 
 			break;
-		case 4://Cambiar precio habitacion
-			hotel.cambiarPrecioHabitacion();
+		case 6: //Consultar precio total de un cliente
+			clientAux = hotel.buscarCliente();
+			hotel.precioTotal(clientAux);				//Queda quitar el descuento!!!!
 			break;
-		case 5://Mostrar precio de una reserva
-
-			break;
-		case 6://Reservar una habitacion
+		case 7: //Nueva reserva
 			hotel.reservarHabitacion();
 			break;
-		case 7://Calcular ganancias de un mes
+		case 8: //Eliminar reserva
 
 			break;
-		case 8://Lista de las habitaciones
-			hotel.listaHabitaciones();
+		case 9: //Calcular ganancias en un mes
+
 			break;
-		case 9://Guardar
+		case 10: //Guardar
 			hotel.guardar();
 			break;
-		case 10:
+		case 11: // Cargar datos
 			hotel.cargar();
 			break;
-		case 11:
+		case 12: //Salir
 			cout << "\nQueres guardar los cambios antes de cerrar:0. NO / 1. SI: ";
 			cin >> selecionNum;
 			if (selecionNum == 1) {

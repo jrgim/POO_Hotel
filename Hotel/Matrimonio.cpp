@@ -11,3 +11,6 @@ Matrimonio::Matrimonio(bool disponible, int huespedes, int numHabitacion) {
 void Matrimonio::ActualizarPrecio(float nuevoPrecio) {
 	Precio = nuevoPrecio;
 }
+void Matrimonio::numerar(int num) {
+	numHabitacion = (num + 200);
+}

@@ -18,12 +18,14 @@ private:
 public:
 	Reserva();
 	Reserva(int, string, int, int, int);
-	float precioTotal();
 	int numTipoHabitacion();//chapuza
 	int numHuespedes();
 	void anadirClientes(Cliente, int);
 	void anadirNumHabitacion(int);
+	int obtenerNumHabitacion();//chapuza
+	int obtenerNumNoches();//chapuza
 	void nuevaReserva();
+	bool buscarClientes(Cliente&);
 	Cliente Clientes(int);
 	friend istream& operator>>(istream&, Reserva&);
 	friend ostream& operator<<(ostream&, const Reserva&);

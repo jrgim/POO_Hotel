@@ -28,7 +28,7 @@ template<class T> void Almacenamiento<T>::guardar(T datosAnadir[], int numMax) {
 	ofstream archivo(nombreArchivo);
 	if (archivo.is_open()) {
 		for (int i = 0; i < numMax; i++) {
-			archivo << datosAnadir[i] << "\n";//probar con endl
+			archivo << datosAnadir[i] << "\n";
 		}
 		archivo.close();
 		cout << "Guardado correctamente." << endl;
@@ -43,6 +43,8 @@ template<class T> void Almacenamiento<T>::cargar(T datosCargar[], int numMax) {
 		for (int i = 0; i < numMax && !archivoEntrada.eof(); i++) {
 			archivoEntrada >> datosCargar[i];
 		}
+		archivoEntrada.close;
+		cout << "Cargado correctamente." << endl;
 	}
 	else {
 		cout << "No se ha podido abrir el archivo." << endl;

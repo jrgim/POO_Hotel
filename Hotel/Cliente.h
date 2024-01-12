@@ -16,6 +16,7 @@ public:
 	bool ComprobarNombre(string);
 	void nuevoCliente();
 	void leerCliente();
+	string obtenerNombre();
 	//virtual bool nuevoDescuento(int)const = 0;
 	friend istream& operator>>(istream&, Cliente&);
 	friend ostream& operator<<(ostream&, const Cliente&);

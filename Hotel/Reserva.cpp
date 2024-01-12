@@ -97,3 +97,18 @@ int Reserva::numHuespedes() {
 Cliente Reserva::Clientes(int indice) {
 	return ClientesReserva[indice];
 }
+
+bool Reserva::buscarClientes(Cliente& cliente) {
+	for (int i = 0; i < 2; i++) {
+		if (cliente.obtenerNombre() == ClientesReserva[i].obtenerNombre()) {
+			return true;
+		}
+	}
+	return false;
+}
+int Reserva::obtenerNumHabitacion() {
+	return numHabitacion;
+}
+int Reserva::obtenerNumNoches() {
+	return numNoches;
+}

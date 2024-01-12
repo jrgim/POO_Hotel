@@ -17,6 +17,6 @@ public:
 	friend ostream& operator<<(ostream&, const Habitacion&);
 	void llenarHabitacion(int);
 	void listaHabitaciones();//poner const
-	void numerar(int);
+	virtual void numerar(int);
 };
 

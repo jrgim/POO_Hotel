@@ -6,5 +6,6 @@ public:
 	Matrimonio();
 	Matrimonio(bool, int, int);
 	void ActualizarPrecio(float);
+	void numerar(int);
 };
 

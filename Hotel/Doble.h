@@ -6,5 +6,6 @@ public:
 	Doble();
 	Doble(bool, int, int);
 	void ActualizarPrecio(float);
+	void numerar(int);
 };
 

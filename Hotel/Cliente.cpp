@@ -36,6 +36,9 @@ void Cliente::nuevoCliente() {
 	cout << "Introduce el dni: ";
 	cin >> dni;
 }
+string Cliente::obtenerNombre() {
+	return nombre;
+}
 void Cliente::leerCliente() {
 	cout << "Nombre del cliente: " << nombre << " con DNI " << dni;
 }

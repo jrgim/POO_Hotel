@@ -37,13 +37,13 @@ public:
 	void cambiarPrecioHabitacion();
 	int consultarDescuento(Cliente&);
 	void modificarDescuento();//¿Se modifica a uno o a todos?  SIN TERMINAR
-	//float precioTotal(Cliente, Habitacion, Reserva);
+	void precioTotal(Cliente&);
 	void reservarHabitacion();
 	//bool eliminarReserva(Reserva);
 	//float calcularGanancias(int);
 	void listaHabitaciones();
 	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
-	Cliente buscarCliente(string);
+	Cliente buscarCliente();
 	void nuevoCliente(Cliente);
 	void guardar();//TODO: Solo carga habitaciones simples y mal. Cambiar sobrecarga
 	void cargar();
