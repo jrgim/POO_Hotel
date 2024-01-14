@@ -227,19 +227,42 @@ void Hotel::cambiarPrecioHabitacion() {
 }
 
 void Hotel::precioTotal(Cliente& cliente) {
-	int numHabitacion = -10;
-	float precio = 0;
+	int numHabitacion = -10, descuento=0;
+	float precio = 0, precioDos = 0;
 	for (int i = 0; i < maxNumReservas; i++) {
 		if (Reservas[i].buscarClientes(cliente)) {
 			numHabitacion = Reservas[i].obtenerNumHabitacion();
 			if (numHabitacion >= 0 && numHabitacion < 100) {
 				precio = habitacionesSimples[i].ObtenerPrecioHabitacion();
 				precio = (precio * Reservas[i].obtenerNumNoches());
+				if (Reservas[i].Clientes(0).ObtenerTipoCliente() == 0) {
+					descuento = Reservas[i].Clientes(0).aplicarDescuento(precio);
+				}
 				cout << "El precio total es de: " << precio << " Euros" << endl;
 			}
+
+			//No calcula bien el precio
+
+
 			else if (numHabitacion >= 100 && numHabitacion < 200) {
 				precio = habitacionesDobles[i].ObtenerPrecioHabitacion();
 				precio = (precio * Reservas[i].obtenerNumNoches());
+				if (Reservas[i].numHuespedes() == 2) {
+					for (int j = 0; j < 2; j++) {
+						if (Reservas[i].Clientes(j).ObtenerTipoCliente() == 0) {
+							descuento = Reservas[i].Clientes(j).aplicarDescuento(precio);
+						}
+						else {
+							
+						}
+					}
+				}
+				else {
+					if (Reservas[i].Clientes(0).ObtenerTipoCliente() == 0) {
+						descuento = Reservas[i].Clientes(0).ObtenerDescuento();
+						precio = (precio * (1 - (descuento / 100)));
+					}
+				}
 				cout << "El precio total es de: " << precio << " Euros" << endl;
 			}
 			else if (numHabitacion >= 200 && numHabitacion < 300) {

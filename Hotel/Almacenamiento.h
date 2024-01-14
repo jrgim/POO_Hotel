@@ -43,7 +43,7 @@ template<class T> void Almacenamiento<T>::cargar(T datosCargar[], int numMax) {
 		for (int i = 0; i < numMax && !archivoEntrada.eof(); i++) {
 			archivoEntrada >> datosCargar[i];
 		}
-		archivoEntrada.close;
+		archivoEntrada.close();
 		cout << "Cargado correctamente." << endl;
 	}
 	else {

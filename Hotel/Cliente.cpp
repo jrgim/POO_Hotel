@@ -42,3 +42,9 @@ string Cliente::obtenerNombre() {
 void Cliente::leerCliente() {
 	cout << "Nombre del cliente: " << nombre << " con DNI " << dni;
 }
+int Cliente::ObtenerTipoCliente() {
+	return tipoCliente;
+}
+float Cliente::aplicarDescuento(float precio) {
+	return precio;//El descuento solo se aplica si el cliente es habitual
+}

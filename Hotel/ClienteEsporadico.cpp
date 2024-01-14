@@ -15,6 +15,9 @@ int ClienteEsporadico::ObtenerDescuento()const {
 	return 0;
 }*/
 bool ClienteEsporadico::nuevoDescuento(int descuento) {
-	this->descuento = descuento;
 	return false;
+}
+float ClienteEsporadico::aplicarDescuento(float precio) {
+	cerr << "No se puede aplicar descuento a un cliente esporadico."<<endl;
+	return precio;
 }

@@ -9,5 +9,6 @@ public:
 	ClienteHabitual(string, string, int);
 	//int ObtenerDescuento() const;
 	bool nuevoDescuento(int);
+	float aplicarDescuento(float);
 };
 
