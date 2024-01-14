@@ -69,7 +69,7 @@ int main() {
 			hotel.reservarHabitacion();
 			break;
 		case 8: //Eliminar reserva
-
+			hotel.eliminarReserva();					//Queda probarla. igual quitar el bool
 			break;
 		case 9: //Calcular ganancias en un mes
 

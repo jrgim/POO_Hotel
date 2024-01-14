@@ -19,7 +19,7 @@ public:
 	void leerCliente();
 	string obtenerNombre();
 	virtual float aplicarDescuento(float);
-	//virtual bool nuevoDescuento(int)const = 0;
+	bool nuevoDescuento(int);
 	friend istream& operator>>(istream&, Cliente&);
 	friend ostream& operator<<(ostream&, const Cliente&);
 };

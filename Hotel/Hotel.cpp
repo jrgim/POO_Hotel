@@ -177,10 +177,17 @@ void Hotel::cargar() {
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;
+	bool aux = false;
 	cout << "Introduce el nuevo descuento para los clientes habituales: ";
 	cin >> nuevoDescuento;
-	//Clientes.nuevo
-}//TODO: terminar
+	aux = Clientes->nuevoDescuento(nuevoDescuento);//ir aplicando solo a los habituales
+	if (aux == true) {
+		cout << "Descuento modificado correctamente.";
+	}
+	else {
+		cout << "Descuento NO modificado.";
+	}
+}
 
 
 
@@ -274,5 +281,31 @@ void Hotel::precioTotal(Cliente& cliente) {
 		else if (!(Reservas[i].buscarClientes(cliente))) {
 			cout << "No se ha encontrado la habitacion." << endl;
 		}*/
+	}
+}
+Reserva Hotel::buscarReserva(int numeroHabitacion) {
+	for (int i = 0; i < maxNumReservas; i++) {
+		if (Reservas[i].obtenerNumHabitacion() == numeroHabitacion) {
+			return Reservas[i];
+		}
+		else {
+			cout << "No se ha encontrado la reserva."<<endl;
+		}
+	}
+}
+
+bool Hotel::eliminarReserva() {
+	int numeroHabitacion;
+	cout << "Introduce el numero de habitacion: ";
+	cin >> numeroHabitacion;
+	for (int i = 0; i < maxNumReservas; i++) {
+		if (Reservas[i].obtenerNumHabitacion() == numeroHabitacion) {
+			Reservas[i] = Reserva();
+			cout << "\nSe ha eliminado la reserva." << endl;
+		}
+		else {
+			cout << "\nNo se ha encontrado la reserva." << endl;
+			return false;
+		}
 	}
 }
