@@ -300,8 +300,9 @@ bool Hotel::eliminarReserva() {
 	cin >> numeroHabitacion;
 	for (int i = 0; i < maxNumReservas; i++) {
 		if (Reservas[i].obtenerNumHabitacion() == numeroHabitacion) {
-			Reservas[i] = Reserva();
+			Reservas[i] = Reserva();//eliminar tmb clientes y habitacion
 			cout << "\nSe ha eliminado la reserva." << endl;
+			return true;
 		}
 		else {
 			cout << "\nNo se ha encontrado la reserva." << endl;

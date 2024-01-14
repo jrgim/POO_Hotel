@@ -48,3 +48,6 @@ int Cliente::ObtenerTipoCliente() {
 float Cliente::aplicarDescuento(float precio) {
 	return precio;//El descuento solo se aplica si el cliente es habitual
 }
+bool Cliente::nuevoDescuento(int nuevoDescuento) {
+	return false;
+}
