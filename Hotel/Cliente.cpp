@@ -12,8 +12,17 @@ Cliente::Cliente(string dni, string nombre) {
 	this->nombre = nombre;
 }
 
-istream& operator>>(istream& is, Cliente& client) {
-	is >> client.nombre >> client.dni >> client.tipoCliente;
+istream& operator>>(istream& is, Cliente*& client) {
+	string nombre;
+	string dni;
+	int tipoCliente;
+	is >> nombre >> dni >> tipoCliente;
+	if (tipoCliente == 0) {
+		client = new ClienteHabitual(dni, nombre);
+	}
+	else if (tipoCliente == 1) {
+		client = new ClienteEsporadico(dni, nombre);
+	}
 	return is;
 }
 ostream& operator<<(ostream& os, const Cliente& client) {

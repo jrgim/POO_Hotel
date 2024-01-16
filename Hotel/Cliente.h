@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include "ClienteEsporadico.h"
+#include "ClienteHabitual.h"
 using namespace std;
 
 class Cliente
@@ -19,8 +21,9 @@ public:
 	void leerCliente();
 	string obtenerNombre();
 	virtual float aplicarDescuento(float);
+	virtual void numerar() = 0;
 	bool nuevoDescuento(int);
-	friend istream& operator>>(istream&, Cliente&);
+	friend istream& operator>>(istream&, Cliente*&);
 	friend ostream& operator<<(ostream&, const Cliente&);
 };
 

@@ -4,12 +4,15 @@ Hotel::Hotel() {
 	habitacionesSimples = new Simple[numMaxHabitaciones];
 	habitacionesDobles = new Doble[numMaxHabitaciones];
 	habitacionesMatrimonio = new Matrimonio[numMaxHabitaciones];
-	Clientes = new Cliente[maxNumClientes];
+	//Clientes = new Cliente[maxNumClientes];
 	Reservas = new Reserva[maxNumReservas];
 	numClientes = 0;
 	opcionSeleccionada = 0;
 	numDeReservas = 0;
 	numerarHabitaciones();
+	for (int i = 0; i < maxNumClientes; i++) {
+		Clientes[i] = new Cliente();
+	}
 }
 void Hotel::numerarHabitaciones() {
 	for (int i = 0; i < numMaxHabitaciones; i++) {
@@ -115,16 +118,16 @@ int Hotel::consultarDescuento(Cliente& const cliente) {
 }
 
 void Hotel::nuevoCliente(Cliente client) {
-	Clientes[numClientes] = client;
+	Clientes[numClientes] = &client;
 	numClientes++;
 }
 
-Cliente Hotel::buscarCliente() {//TODO: corregir
+Cliente* Hotel::buscarCliente() {//TODO: corregir
 	int i = 0;
 	string nombreABuscar;
 	cout << "Nombre del cliente a buscar: ";
 	cin >> nombreABuscar;
-	while (Clientes[i].ComprobarNombre(nombreABuscar) == false) {
+	while (Clientes[i]->ComprobarNombre(nombreABuscar) == false) {
 		i++;
 		if (i == maxNumClientes) {
 			cout << "No se ha encontrado el cliente. Introduzca otro nombre: " << endl;
@@ -157,7 +160,7 @@ void Hotel::guardar() {
 	Almacenamiento<Reserva>almacenamientoReservas("Reservas.txt");
 	almacenamientoReservas.guardar(Reservas, maxNumReservas);
 	//Guarda Clientes
-	Almacenamiento<Cliente>almacenamientoClientes("Clientes.txt");
+	Almacenamiento<Cliente*>almacenamientoClientes("Clientes.txt");
 	almacenamientoClientes.guardar(Clientes, maxNumClientes);
 }
 void Hotel::cargar() {
@@ -172,21 +175,33 @@ void Hotel::cargar() {
 	Almacenamiento<Reserva>almacenamientoReservas("Reservas.txt");
 	almacenamientoReservas.cargar(Reservas, maxNumReservas);
 	//Carga Clientes
-	Almacenamiento<Cliente>almacenamientoClientes("Clientes.txt");
-	almacenamientoClientes.cargar(Clientes, maxNumClientes);
+	Almacenamiento<Cliente*>almacenamientoClientes("Clientes.txt");
+	Cliente* clientesCargados[maxNumClientes];
+	for (int i = 0; i < maxNumClientes; i++) {
+		clientesCargados[i] = new Cliente();
+	}
+	almacenamientoClientes.cargar(clientesCargados, maxNumClientes);
+	for (int i = 0; i < maxNumClientes; i++) {
+		Clientes[i] = clientesCargados[i];
+	}
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;
 	bool aux = false;
 	cout << "Introduce el nuevo descuento para los clientes habituales: ";
 	cin >> nuevoDescuento;
-	aux = Clientes->nuevoDescuento(nuevoDescuento);//ir aplicando solo a los habituales
-	if (aux == true) {
-		cout << "Descuento modificado correctamente.";
-	}
-	else {
-		cout << "Descuento NO modificado.";
-	}
+	for (int i = 0; i < maxNumClientes; i++) {
+		ClienteHabitual* clienteHabitual = dynamic_cast<ClienteHabitual*>(Clientes[i]);
+		if (clienteHabitual != nullptr) {
+		}
+		aux = clienteHabitual->nuevoDescuento(nuevoDescuento);//ir aplicando solo a los habituales
+		if (aux == true) {
+			cout << "Descuento modificado correctamente."<<endl;//poner cliente i?
+		}
+		else {
+			cout << "Descuento NO modificado." << endl;
+		}
+		}
 }
 
 
@@ -235,17 +250,18 @@ void Hotel::cambiarPrecioHabitacion() {
 
 void Hotel::precioTotal(Cliente& cliente) {
 	int numHabitacion = -10, descuento=0;
-	float precio = 0, precioDos = 0;
+	float precio = 0, precioConNoches = 0,precioTotal = 0;
 	for (int i = 0; i < maxNumReservas; i++) {
 		if (Reservas[i].buscarClientes(cliente)) {
 			numHabitacion = Reservas[i].obtenerNumHabitacion();
 			if (numHabitacion >= 0 && numHabitacion < 100) {
 				precio = habitacionesSimples[i].ObtenerPrecioHabitacion();
-				precio = (precio * Reservas[i].obtenerNumNoches());
+				precioConNoches = (precio * Reservas[i].obtenerNumNoches());
+				descuento = Reservas[i].Clientes(0).ObtenerDescuento();
 				if (Reservas[i].Clientes(0).ObtenerTipoCliente() == 0) {
-					descuento = Reservas[i].Clientes(0).aplicarDescuento(precio);
+					precioTotal = precio * (1 - (descuento / 100));
 				}
-				cout << "El precio total es de: " << precio << " Euros" << endl;
+				cout << "El precio total es de: " << precioTotal << " Euros" << endl;
 			}
 
 			//No calcula bien el precio

@@ -26,7 +26,7 @@ private:
 	Doble* habitacionesDobles;
 	Matrimonio* habitacionesMatrimonio;
 	Reserva* Reservas;
-	Cliente* Clientes;
+	Cliente*  Clientes[maxNumClientes];
 	int numClientes;
 	int opcionSeleccionada;
 	int numDeReservas;
@@ -44,7 +44,7 @@ public:
 	//float calcularGanancias(int);
 	void listaHabitaciones();
 	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
-	Cliente buscarCliente();
+	Cliente* buscarCliente();
 	void nuevoCliente(Cliente);
 	void guardar();//TODO: Solo carga habitaciones simples y mal. Cambiar sobrecarga
 	void cargar();

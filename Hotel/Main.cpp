@@ -7,7 +7,7 @@ int main() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	int opcionSeleccionada = 0, selecionNum=-1;
 	string aux;
-	Cliente clientAux;
+	Cliente* clientAux;
 	Hotel hotel;
 
 	while (opcionSeleccionada != 12) {
@@ -55,15 +55,15 @@ int main() {
 			break;
 		case 4: //Consultar descuento
 			clientAux = hotel.buscarCliente();
-			clientAux.leerCliente();
-			cout << " tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
+			clientAux->leerCliente();
+			cout << " tiene un descuento de: " << hotel.consultarDescuento(*clientAux) << "%\n" << endl;
 			break;
 		case 5: //Modificar descuento
 
 			break;
 		case 6: //Consultar precio total de un cliente
 			clientAux = hotel.buscarCliente();
-			hotel.precioTotal(clientAux);				//Queda quitar el descuento!!!!
+			hotel.precioTotal(*clientAux);				//Queda quitar el descuento!!!!
 			break;
 		case 7: //Nueva reserva
 			hotel.reservarHabitacion();

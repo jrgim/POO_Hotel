@@ -6,7 +6,7 @@ private:
 	//int descuento;
 public:
 	ClienteHabitual();
-	ClienteHabitual(string, string, int);
+	ClienteHabitual(string, string);
 	//int ObtenerDescuento() const;
 	bool nuevoDescuento(int);
 	float aplicarDescuento(float);

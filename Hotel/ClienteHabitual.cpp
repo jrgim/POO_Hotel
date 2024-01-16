@@ -5,10 +5,9 @@ ClienteHabitual::ClienteHabitual() {
 	descuento = 10;
 	tipoCliente = 0;
 }
-ClienteHabitual::ClienteHabitual(string dni, string nombre, int descuento) {
+ClienteHabitual::ClienteHabitual(string dni, string nombre) {
 	this->dni = dni;
 	this->nombre = nombre;
-	this->descuento = descuento;
 }/*
 int ClienteHabitual::ObtenerDescuento() const {
 	cout << " tiene un deacuento de: " << descuento << "%" << endl;//Igual no hace falta
@@ -19,6 +18,7 @@ bool ClienteHabitual::nuevoDescuento(int descuento) {
 	return true;
 }
 float ClienteHabitual::aplicarDescuento(float precio) {
+	cout << "Descuento Aplicado" << endl;
 	float precioTotal;
 	precioTotal = precio * (1 - (descuento / 100));
 	return precioTotal;

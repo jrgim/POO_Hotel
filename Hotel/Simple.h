@@ -6,5 +6,6 @@ public:
 	Simple();
 	Simple(bool, int, int);
 	void ActualizarPrecio(float);
+	float ObtenerPrecioHabitacion()const;
 };
 

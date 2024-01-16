@@ -10,3 +10,7 @@ Simple::Simple(bool disponible, int huespedes, int numHabitacion) {
 void Simple::ActualizarPrecio(float nuevoPrecio) {
 	Precio = nuevoPrecio;
 }
+float Simple::ObtenerPrecioHabitacion() const{
+	cout << "El precio de la habitacion simple X noche es de: " << Precio << "Euros." << endl;//igual quitar
+	return Precio;
+}

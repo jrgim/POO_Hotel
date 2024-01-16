@@ -13,3 +13,7 @@ void Doble::ActualizarPrecio(float nuevoPrecio) {
 void Doble::numerar(int num){
 	numHabitacion = (num+100);
 }
+float Doble::ObtenerPrecioHabitacion()const {
+	cout << "El precio de la habitacion doble X noche es de: " << Precio << "Euros." << endl;//igual quitar
+	return Precio;
+}

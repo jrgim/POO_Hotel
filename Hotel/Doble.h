@@ -7,5 +7,6 @@ public:
 	Doble(bool, int, int);
 	void ActualizarPrecio(float);
 	void numerar(int);
+	float ObtenerPrecioHabitacion()const;
 };
 

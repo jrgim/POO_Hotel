@@ -14,3 +14,7 @@ void Matrimonio::ActualizarPrecio(float nuevoPrecio) {
 void Matrimonio::numerar(int num) {
 	numHabitacion = (num + 200);
 }
+float Matrimonio::ObtenerPrecioHabitacion() const {
+	cout << "El precio de la habitacion de matrimonio X noche es de: " << Precio << "Euros." << endl;//igual quitar
+	return Precio;
+}

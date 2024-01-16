@@ -10,7 +10,7 @@ protected:
 	int numHabitacion;
 public:
 	Habitacion();//no se si hay que  Shacer el constructor
-	float const ObtenerPrecioHabitacion();
+	virtual float ObtenerPrecioHabitacion() const =0;
 	bool Disponibilidad();//comprueba si la habitacion esta libre
 	virtual void ActualizarPrecio(float) = 0;
 	friend istream& operator>>(istream&, Habitacion&);
