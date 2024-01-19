@@ -6,7 +6,6 @@ Habitacion::Habitacion() {
 	numHabitacion = 0;
 }
 float const Habitacion::ObtenerPrecioHabitacion() {
-	cout << "El precio de la habitacion X noche es de: " << Precio << "Euros." << endl;//igual quitar
 	return Precio;
 }
 bool Habitacion::Disponibilidad() {
@@ -20,7 +19,6 @@ void Habitacion::llenarHabitacion(int huespedes) {
 	this->huespedes = huespedes;
 	disponible = false;
 }
-//MAL
 istream& operator>>(istream& is, Habitacion& habitacion) {
 	is>> habitacion.numHabitacion >> habitacion.disponible >> habitacion.huespedes >> habitacion.Precio;
 	return is;

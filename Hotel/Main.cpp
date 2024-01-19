@@ -74,14 +74,14 @@ int main() {
 			break;
 		case 4: //Consultar precio total de un cliente
 			clientAux = hotel.buscarCliente();
-			hotel.precioTotal(clientAux);
+			hotel.precioTotalRecepcion(clientAux);
 			break;
 		case 5: //Nueva reserva
 			hotel.reservarHabitacion();
 
 			break;
 		case 6: //Eliminar reserva
-			hotel.eliminarReserva();					//Queda probarla.
+			hotel.eliminarReserva();
 			
 			break;
 		case 7: //Calcular ganancias en un mes

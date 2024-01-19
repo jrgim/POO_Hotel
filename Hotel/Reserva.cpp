@@ -36,7 +36,7 @@ void Reserva::nuevaReserva() {
 	cin >> mes;
 	cout << "\nAnio: ";
 	cin >> anio;
-	cout << "\n Introduce el numero de personas a hospedar: ";
+	cout << "\nIntroduce el numero de personas a hospedar: ";
 	cin >> numClientesHabitacion;
 	while (numClientesHabitacion >= 3) {
 		cout << "El numero maximo de personas por habitacion es de 2 personas." << endl;

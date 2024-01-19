@@ -107,6 +107,7 @@ void Hotel::reservarHabitacion() {
 			
 			break;
 		}
+		cout <<"Habitacion asignada n: "<<Reservas[numDeReservas].obtenerNumHabitacion()<<endl;
 		numDeReservas++;
 	}
 }
@@ -234,25 +235,25 @@ void Hotel::precioTotalRecepcion(Cliente& cliente) {
 			numHabitacion = Reservas[i].obtenerNumHabitacion();
 			if (numHabitacion >= 0 && numHabitacion < 100) {
 				precio = habitacionesSimples[i].ObtenerPrecioHabitacion();
+				cout << "El precio de la habitacion X noche es de: " << precio << "Euros." << endl;
 				precio = (precio * Reservas[i].obtenerNumNoches());
 				precioTotal = cliente.aplicarDescuento(precio);
 				cout << "El precio total es de: " << precioTotal << " Euros." << endl;
 			}
 			else if (numHabitacion >= 100 && numHabitacion < 200) {
 				precio = habitacionesDobles[i].ObtenerPrecioHabitacion();
+				cout << "El precio de la habitacion X noche es de: " << precio << "Euros." << endl;
 				precio = (precio * Reservas[i].obtenerNumNoches());
 				precioTotal = cliente.aplicarDescuento(precio);
 				cout << "El precio total es de: " << precioTotal << " Euros." << endl;
 			}
 			else if (numHabitacion >= 200 && numHabitacion < 300) {
 				precio = habitacionesMatrimonio[i].ObtenerPrecioHabitacion();
+				cout << "El precio de la habitacion X noche es de: " << precio << "Euros." << endl;
 				precio = (precio * Reservas[i].obtenerNumNoches());
 				precioTotal = cliente.aplicarDescuento(precio);
 				cout << "El precio total es de: " << precioTotal << " Euros." << endl;
 			}
-		}
-		else if (!(Reservas[i].buscarClientes(cliente))) {
-			cout << "No se ha encontrado la habitacion." << endl;
 		}
 	}
 }
@@ -281,9 +282,6 @@ float Hotel::precioTotal(Cliente& cliente) {
 				return precioTotal;
 			}
 		}
-		else if (!(Reservas[i].buscarClientes(cliente))) {
-			cout << "No se ha encontrado la habitacion." << endl;
-		}
 	}
 }
 Reserva Hotel::buscarReserva(int numeroHabitacion) {
@@ -291,7 +289,7 @@ Reserva Hotel::buscarReserva(int numeroHabitacion) {
 		if (Reservas[i].obtenerNumHabitacion() == numeroHabitacion) {
 			return Reservas[i];
 		}
-		else {
+		else if( i == 1-maxNumReservas) {
 			cout << "No se ha encontrado la reserva."<<endl;
 		}
 	}
