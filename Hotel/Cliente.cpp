@@ -13,11 +13,11 @@ Cliente::Cliente(string dni, string nombre) {
 }
 
 istream& operator>>(istream& is, Cliente& client) {
-	is >> client.nombre >> client.dni >> client.tipoCliente;
+	is >> client.nombre >> client.dni >> client.tipoCliente>>client.descuento;
 	return is;
 }
 ostream& operator<<(ostream& os, const Cliente& client) {
-	os << client.nombre << "\n" << client.dni << "\n" << client.tipoCliente;
+	os << client.nombre << "\n" << client.dni << "\n" << client.tipoCliente<<"\n"<<client.descuento;
 	return os;
 }
 bool Cliente::ComprobarNombre(string nombreABuscar) {
@@ -53,5 +53,6 @@ float Cliente::aplicarDescuento(float precio) {
 }
 bool Cliente::nuevoDescuento(int nuevoDescuento) {
 	descuento = nuevoDescuento;
+
 	return true;
 }
