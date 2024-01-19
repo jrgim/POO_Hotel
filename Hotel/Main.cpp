@@ -85,7 +85,7 @@ int main() {
 			
 			break;
 		case 7: //Calcular ganancias en un mes
-
+			hotel.calcularGanancias();
 			break;
 		case 8: //Guardar o cargar
 			cout << "Seleccione una opcion: 0. Guardar datos, 1. Cargar datos";

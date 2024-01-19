@@ -98,13 +98,13 @@ void Hotel::reservarHabitacion() {
 			Reservas[numDeReservas].anadirNumHabitacion(numHabitacion+100);
 			habitacionesDobles[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
 			nuevoCliente(Reservas[numDeReservas].Clientes(0));
-			nuevoCliente(Reservas[numDeReservas].Clientes(1));
+			
 			break;
 		case 2:
 			Reservas[numDeReservas].anadirNumHabitacion(numHabitacion+200);
 			habitacionesMatrimonio[numHabitacion].llenarHabitacion(Reservas[numDeReservas].numHuespedes());
 			nuevoCliente(Reservas[numDeReservas].Clientes(0));
-			nuevoCliente(Reservas[numDeReservas].Clientes(1));
+			
 			break;
 		}
 		numDeReservas++;
@@ -133,17 +133,6 @@ Cliente Hotel::buscarCliente() {//TODO: corregir
 		}
 	}
 	return Clientes[i];
-
-	/*OTRA FORMA MAL
-	for (int i = 0; i < maxNumClientes; i++)
-		if(Clientes[i].ComprobarNombre(nombreABuscar)){
-			return Clientes[i];
-		}
-		else {
-			cout << "No se ha encontrado el cliente. Introduzca otro nombre: " << endl;
-			cin >> nombreABuscar;
-		}*/
-
 }
 void Hotel::guardar() {
 	//Guarda Habitaciones
@@ -178,7 +167,7 @@ void Hotel::cargar() {
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;
 	bool aux[maxNumClientes];
-	cout << "Introduce el nuevo descuento para los clientes habituales: ";
+	cout << "Introduce el nuevo descuento para los clientes habituales anadidos al hotel: ";
 	cin >> nuevoDescuento;
 	for (int i = 0; i < maxNumClientes; i++) {
 		if (Clientes[i].ObtenerTipoCliente() == 0) {
@@ -237,9 +226,9 @@ void Hotel::cambiarPrecioHabitacion() {
 	cout << "\nPrecio actualizado." << endl;
 }
 
-void Hotel::precioTotal(Cliente& cliente) {
+void Hotel::precioTotalRecepcion(Cliente& cliente) {
 	int numHabitacion = -10, descuento=0;
-	float precio = 0, precioDos = 0, precioTotal = 0;
+	float precio = 0, precioTotal = 0;
 	for (int i = 0; i < maxNumReservas; i++) {
 		if (Reservas[i].buscarClientes(cliente)) {
 			numHabitacion = Reservas[i].obtenerNumHabitacion();
@@ -260,6 +249,36 @@ void Hotel::precioTotal(Cliente& cliente) {
 				precio = (precio * Reservas[i].obtenerNumNoches());
 				precioTotal = cliente.aplicarDescuento(precio);
 				cout << "El precio total es de: " << precioTotal << " Euros." << endl;
+			}
+		}
+		else if (!(Reservas[i].buscarClientes(cliente))) {
+			cout << "No se ha encontrado la habitacion." << endl;
+		}
+	}
+}
+float Hotel::precioTotal(Cliente& cliente) {
+	int numHabitacion = -10, descuento = 0;
+	float precio = 0, precioTotal = 0;
+	for (int i = 0; i < maxNumReservas; i++) {
+		if (Reservas[i].buscarClientes(cliente)) {
+			numHabitacion = Reservas[i].obtenerNumHabitacion();
+			if (numHabitacion >= 0 && numHabitacion < 100) {
+				precio = habitacionesSimples[i].ObtenerPrecioHabitacion();
+				precio = (precio * Reservas[i].obtenerNumNoches());
+				precioTotal = cliente.aplicarDescuento(precio);
+				return precioTotal;
+			}
+			else if (numHabitacion >= 100 && numHabitacion < 200) {
+				precio = habitacionesDobles[i].ObtenerPrecioHabitacion();
+				precio = (precio * Reservas[i].obtenerNumNoches());
+				precioTotal = cliente.aplicarDescuento(precio);
+				return precioTotal;
+			}
+			else if (numHabitacion >= 200 && numHabitacion < 300) {
+				precio = habitacionesMatrimonio[i].ObtenerPrecioHabitacion();
+				precio = (precio * Reservas[i].obtenerNumNoches());
+				precioTotal = cliente.aplicarDescuento(precio);
+				return precioTotal;
 			}
 		}
 		else if (!(Reservas[i].buscarClientes(cliente))) {
@@ -308,4 +327,17 @@ bool Hotel::eliminarReserva() {
 			return false;
 		}
 	}
+}
+void Hotel::calcularGanancias() {
+	int mesABuscar;
+	float ganancias=0.0;
+	cout << "Introduce el numero de mes a buscar con el formato (Enero: 01): ";
+	cin >> mesABuscar;
+	for (int i = 0; i < maxNumReservas; i++) {
+		if (Reservas[i].mesReserva() == mesABuscar) {
+			Cliente aux = Reservas[i].Clientes(0);
+			ganancias = ganancias + precioTotal(aux);
+		}
+	}
+	cout << "\nLas ganancias del mes " << mesABuscar << " son de: " << ganancias << " Euros." << endl;
 }

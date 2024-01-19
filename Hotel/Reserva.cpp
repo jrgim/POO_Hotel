@@ -2,15 +2,19 @@
 Reserva::Reserva(){
     numNoches=0;
 	ClientesReserva = new Cliente[3];
-    fechaEntrada = "10/12/2023";
+	dia = 10;
+	mes = 01;
+	anio = 2024;
     numHabitacion= 0;
 	numClientesHabitacion = 0;
 	tipoHabitacion = 3;
 }
 
-Reserva::Reserva(int numNoches, string fechaEntrada, int numHabitacion, int numClientesHabitacion, int tipoHabitacion){
+Reserva::Reserva(int numNoches, int dia, int mes, int anio, int numHabitacion, int numClientesHabitacion, int tipoHabitacion){
     this->numNoches = numNoches;
-    this->fechaEntrada = fechaEntrada;
+	this->dia = dia;
+	this->mes = mes;
+	this->anio = anio;
     this->numHabitacion=numHabitacion;
     this->numClientesHabitacion = numClientesHabitacion;
 	this->tipoHabitacion = tipoHabitacion;
@@ -21,12 +25,17 @@ void Reserva::anadirClientes(Cliente cliente, int indice) {
 
 
 void Reserva::nuevaReserva() {
-	int tipoCliente;
+	int tipoCliente=-1;
 	Cliente cliente;
 	cout << "Introduce el numero de noches: ";
 	cin >> numNoches;
-	cout << "\nIntroduce la fecha de entrada: ";
-	cin >> fechaEntrada;
+	cout << "\nIntroduce la fecha de entrada (formato dia 01 y mes 02 febrero)"<<endl;
+	cout << "Dia: ";
+	cin >> dia;
+	cout << "\nMes: ";
+	cin >> mes;
+	cout << "\nAnio: ";
+	cin >> anio;
 	cout << "\n Introduce el numero de personas a hospedar: ";
 	cin >> numClientesHabitacion;
 	while (numClientesHabitacion >= 3) {
@@ -54,35 +63,33 @@ void Reserva::nuevaReserva() {
 			cin >> tipoHabitacion;
 		}
 	}
-
-	//cambiar esto. solo quiero poner los tipos de habitaciones por numeros
-	//quiero guardar los clientes en el hotel? o en la clase reserva?
-	for (int i = 0; i < numClientesHabitacion; i++) {
-		cout << "Cliente " << i << " seleccione tipo de cliente : 0. Habitual, 1. Esporadico : ";
+	while (tipoCliente != 0 && tipoCliente != 1) {
+		cout << "Seleccione tipo de cliente : 0. Habitual, 1. Esporadico : ";
 		cin >> tipoCliente;
+
+		//cambiar esto. solo quiero poner los tipos de habitaciones por numeros
+		//quiero guardar los clientes en el hotel? o en la clase reserva?
+
 		if (tipoCliente == 0) {
-			cout << "Cliente " << i << ": ";
-			//cin >> cliente;
 			ClienteHabitual Habitual;
 			Habitual.nuevoCliente();
-			anadirClientes(Habitual, i);
+			anadirClientes(Habitual, 0);
 		}
 		else if (tipoCliente == 1) {
-			cout << "Cliente " << i << ": ";
 			ClienteEsporadico Esporadico;
 			Esporadico.nuevoCliente();
-			anadirClientes(Esporadico, i);
+			anadirClientes(Esporadico, 0);
 		}
 		else cout << "Tipo de cliente incorrecto" << endl;
 	}
 }
 //Tenia puesto en la sobrecarga de >> lo que hace la funcion nuevaReserva, pero he preferido cambiarlo para poder cargar los datos desde los archivos.
 istream& operator>>(istream& is, Reserva& reserva) {//TODO: Como guardar los clientes o seleccionarlos
-	is >> reserva.numClientesHabitacion >> reserva.tipoHabitacion >> reserva.numNoches >> reserva.fechaEntrada >> reserva.numHabitacion;
+	is >> reserva.numClientesHabitacion >> reserva.tipoHabitacion >> reserva.numNoches >> reserva.dia >> reserva.mes >> reserva.anio >> reserva.numHabitacion;
 	return is;
 }
 ostream& operator<<(ostream& os, const Reserva& reserva) {
-	os << reserva.numClientesHabitacion << "\n" << reserva.tipoHabitacion << "\n" << reserva.numNoches << "\n" << reserva.fechaEntrada << "\n" << reserva.numHabitacion;
+	os << reserva.numClientesHabitacion << "\n" << reserva.tipoHabitacion << "\n" << reserva.numNoches << "\n" << reserva.dia<< "\n" << reserva.mes<< "\n" << reserva.anio << "\n" << reserva.numHabitacion;
 	return os;
 }
 int Reserva::numTipoHabitacion() {
@@ -111,4 +118,7 @@ int Reserva::obtenerNumHabitacion() {
 }
 int Reserva::obtenerNumNoches() {
 	return numNoches;
+}
+int Reserva::mesReserva() {
+	return mes;
 }

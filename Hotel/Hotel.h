@@ -37,11 +37,12 @@ public:
 	void cambiarPrecioHabitacion();
 	int consultarDescuento(Cliente&);
 	void modificarDescuento();//¿Se modifica a uno o a todos?  SIN TERMINAR
-	void precioTotal(Cliente&);
+	void precioTotalRecepcion(Cliente&);
+	float precioTotal(Cliente&);
 	void reservarHabitacion();
 	bool eliminarReserva();
 	Reserva buscarReserva(int);
-	//float calcularGanancias(int);
+	void calcularGanancias();
 	void listaHabitaciones();
 	int ObtenerHabitacionLibre(int);//intenta devolver el numero de la habitacion libre
 	Cliente buscarCliente();

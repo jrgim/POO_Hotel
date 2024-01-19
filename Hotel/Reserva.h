@@ -13,11 +13,13 @@ private:
 	int tipoHabitacion; //0: H.Simple, 1: H.Doble, 2: H.Matrimonio
 	Cliente* ClientesReserva;
 	int numNoches;
-	string fechaEntrada;
+	int dia;
+	int mes;
+	int anio;
 	int numHabitacion;// se obtiene mediante el metodo de la clase Habitacion
 public:
 	Reserva();
-	Reserva(int, string, int, int, int);
+	Reserva(int, int, int, int, int, int, int);
 	int numTipoHabitacion();//chapuza
 	int numHuespedes();
 	void anadirClientes(Cliente, int);
@@ -25,6 +27,7 @@ public:
 	int obtenerNumHabitacion();//chapuza
 	int obtenerNumNoches();//chapuza
 	void nuevaReserva();
+	int mesReserva();
 	bool buscarClientes(Cliente&);
 	Cliente Clientes(int);
 	friend istream& operator>>(istream&, Reserva&);
