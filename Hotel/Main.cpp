@@ -81,10 +81,11 @@ int main() {
 
 			break;
 		case 6: //Eliminar reserva
-			hotel.eliminarReserva();					//Queda probarla. igual quitar el bool
+			hotel.eliminarReserva();					//Queda probarla.
 			
 			break;
 		case 7: //Calcular ganancias en un mes
+
 			break;
 		case 8: //Guardar o cargar
 			cout << "Seleccione una opcion: 0. Guardar datos, 1. Cargar datos";

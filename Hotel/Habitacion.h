@@ -16,6 +16,7 @@ public:
 	friend istream& operator>>(istream&, Habitacion&);
 	friend ostream& operator<<(ostream&, const Habitacion&);
 	void llenarHabitacion(int);
+	void vaciarHabitacion();
 	void listaHabitaciones();//poner const
 	virtual void numerar(int);
 };

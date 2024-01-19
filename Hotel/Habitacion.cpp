@@ -36,3 +36,7 @@ void Habitacion::listaHabitaciones() {
 void Habitacion::numerar(int num) {
 	numHabitacion = num;
 }
+void Habitacion::vaciarHabitacion() {
+	disponible = true;
+	huespedes = 0;
+}

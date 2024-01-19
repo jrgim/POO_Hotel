@@ -284,7 +284,22 @@ bool Hotel::eliminarReserva() {
 	cin >> numeroHabitacion;
 	for (int i = 0; i < maxNumReservas; i++) {
 		if (Reservas[i].obtenerNumHabitacion() == numeroHabitacion) {
-			Reservas[i] = Reserva();//eliminar tmb clientes y habitacion
+			for (int j = i; j < maxNumReservas-1; j++) {
+				Reservas[j] = Reservas[j + 1];
+			}
+
+			if (numeroHabitacion >= 0 && numeroHabitacion < 100) {
+				habitacionesSimples[numeroHabitacion].vaciarHabitacion();
+			}
+			else if (numeroHabitacion >= 100 && numeroHabitacion < 200) {
+				habitacionesDobles[numeroHabitacion].vaciarHabitacion();
+			}
+			else if (numeroHabitacion >= 200 && numeroHabitacion < 300) {
+				habitacionesMatrimonio[numeroHabitacion].vaciarHabitacion();
+			}
+			for (int j = i; j < maxNumClientes-1; j++) {
+				Clientes[j] = Clientes[j + 1];
+			}
 			cout << "\nSe ha eliminado la reserva." << endl;
 			return true;
 		}
