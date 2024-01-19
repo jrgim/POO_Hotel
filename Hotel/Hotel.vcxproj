@@ -132,6 +132,8 @@
     <ClInclude Include="ClienteEsporadico.h" />
     <ClInclude Include="ClienteHabitual.h" />
     <ClInclude Include="Doble.h" />
+    <ClInclude Include="ExcepcionNombre.h" />
+    <ClInclude Include="Excepcion_digito.h" />
     <ClInclude Include="Habitacion.h" />
     <ClInclude Include="Hotel.h" />
     <ClInclude Include="Matrimonio.h" />

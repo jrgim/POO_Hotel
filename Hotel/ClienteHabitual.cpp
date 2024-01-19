@@ -18,8 +18,3 @@ bool ClienteHabitual::nuevoDescuento(int descuento) {
 	this->descuento = descuento;
 	return true;
 }
-float ClienteHabitual::aplicarDescuento(float precio) {
-	float precioTotal;
-	precioTotal = precio * (1 - (descuento / 100));
-	return precioTotal;
-}

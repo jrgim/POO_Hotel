@@ -46,7 +46,10 @@ int Cliente::ObtenerTipoCliente() {
 	return tipoCliente;
 }
 float Cliente::aplicarDescuento(float precio) {
-	return precio;//El descuento solo se aplica si el cliente es habitual
+	float descuentoFloat = static_cast<float>(descuento);
+	float porcentaje = descuentoFloat / 100;
+	float precioTotal = ((1 - porcentaje)*precio);
+	return precioTotal;
 }
 bool Cliente::nuevoDescuento(int nuevoDescuento) {
 	return false;

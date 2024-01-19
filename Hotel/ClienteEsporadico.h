@@ -7,6 +7,5 @@ public:
 	ClienteEsporadico(string, string);
 	//int ObtenerDescuento() const;
 	bool nuevoDescuento(int);
-	float aplicarDescuento(float);
 };
 

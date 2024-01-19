@@ -1,86 +1,103 @@
 #include<iostream>
 #include<Windows.h>
 #include "Hotel.h"
+#include "Excepcion_digito.h"
 #define color SetConsoleTextAttribute
 
 int main() {
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	int opcionSeleccionada = 0, selecionNum=-1;
+	int opcionSeleccionada = 0, opcDos=-1, selecionNum=-1;
 	string aux;
+	char entrada;
 	Cliente clientAux;
 	Hotel hotel;
 
-	while (opcionSeleccionada != 12) {
+	while (opcionSeleccionada != 9) {
 		color(hConsole, 1);
 		cout << "~~~~~~~~~~~~Menu Recepcionista hotel~~~~~~~~~~~~\n" << endl;
 		color(hConsole, 2);
 		cout << "1. Lista de las habitaciones\n";
 		color(hConsole, 3);
-		cout << "2. Consultar el precio de una habitacion\n";
+		cout << "2. Consultar o modificar el precio de una habitacion\n";
 		color(hConsole, 5);
-		cout << "3. Modificar el precio de una habitacion" << endl;
+		cout << "3. Consultar o modificar el descuento" << endl;
 		color(hConsole, 6);
-		cout << "4. Consultar descuento\n";
+		cout << "4. Consultar precio total de un cliente\n";
 		color(hConsole, 7);
-		cout << "5. Modificar descuento\n";
+		cout << "5. Nueva reserva\n";
 		color(hConsole, 9);
-		cout << "6. Consultar precio total de un cliente\n";
+		cout << "6. Eliminar reserva\n";
 		color(hConsole, 10);
-		cout << "7. Nueva reserva" << endl;
+		cout << "7. Calcular ganancias en un mes" << endl;
 		color(hConsole, 1);
-		cout << "8. Eliminar reserva\n";
+		cout << "8. Guardar o cargar datos\n";
 		color(hConsole, 2);
-		cout << "9. Calcular ganancias en un mes\n";
-		color(hConsole, 6);
-		cout << "10. Guardar\n";
-		color(hConsole, 3);
-		cout << "11. Cargar datos\n";
-		color(hConsole, 4);
-		cout << "12. Salir" << endl;
+		cout << "9. Salir\n";
 		color(hConsole, 3);
 		cout << "Seleccione una opcion: ";
-		cin >> opcionSeleccionada;
+		cin >> entrada;
 
+		try {
+			opcionSeleccionada = entrada - '0';
+		}
+		catch (invalid_argument& ia) {
+			cout << ia.what() << endl;
+		}
 
 		switch (opcionSeleccionada)
 		{
 		case 1: // Lista de las habitaciones
 			hotel.listaHabitaciones();
 			break;
-		case 2: //Consultar el precio de una habitacion
-			hotel.consultarPrecioHabitacion();
+		case 2: //Consultar el precio de una habitacion y Modificar el precio de una habitacion
+			cout << "Seleccione una opcion: 0. Consultar precio de las habitaciones, 1. Cambiar el precio de las habitaciones: ";
+			cin >> opcDos;
+			if (opcDos == 0) {
+				hotel.consultarPrecioHabitacion();
+			}
+			else if (opcDos == 1) {
+				hotel.cambiarPrecioHabitacion();
+			}
+			opcDos = -1;
 			break;
-		case 3: //Modificar el precio de una habitacion
-			hotel.cambiarPrecioHabitacion();
-			break;
-		case 4: //Consultar descuento
-			clientAux = hotel.buscarCliente();
-			clientAux.leerCliente();
-			cout << " tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
-			break;
-		case 5: //Modificar descuento
+		case 3: //Consultar descuento
+			cout << "Seleccione una opcion: 0. Consultar descuento, 1. modificar descuento: ";
+			cin >> opcDos;
+			if (opcDos == 0) {
+				clientAux = hotel.buscarCliente();
+				clientAux.leerCliente();
+				cout << " tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
+			}
+			else if (opcDos == 1) {//Modificar descuento
 
+			}
 			break;
-		case 6: //Consultar precio total de un cliente
+		case 4: //Consultar precio total de un cliente
 			clientAux = hotel.buscarCliente();
 			hotel.precioTotal(clientAux);				//Queda quitar el descuento!!!!
 			break;
-		case 7: //Nueva reserva
+		case 5: //Nueva reserva
 			hotel.reservarHabitacion();
-			break;
-		case 8: //Eliminar reserva
-			hotel.eliminarReserva();					//Queda probarla. igual quitar el bool
-			break;
-		case 9: //Calcular ganancias en un mes
 
 			break;
-		case 10: //Guardar
-			hotel.guardar();
+		case 6: //Eliminar reserva
+			hotel.eliminarReserva();					//Queda probarla. igual quitar el bool
+			
 			break;
-		case 11: // Cargar datos
-			hotel.cargar();
+		case 7: //Calcular ganancias en un mes
 			break;
-		case 12: //Salir
+		case 8: //Guardar o cargar
+			cout << "Seleccione una opcion: 0. Guardar datos, 1. Cargar datos";
+			cin >> opcDos;
+			if (opcDos == 0) {
+				hotel.guardar();
+			}
+			else if (opcDos == 1) {
+				hotel.cargar();
+			}
+			
+			break;
+		case 9: //Salir
 			cout << "\nQueres guardar los cambios antes de cerrar:0. NO / 1. SI: ";
 			cin >> selecionNum;
 			if (selecionNum == 1) {
