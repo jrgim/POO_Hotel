@@ -177,16 +177,20 @@ void Hotel::cargar() {
 }
 void Hotel::modificarDescuento() {
 	int nuevoDescuento=0;
-	bool aux = false;
+	bool aux[maxNumClientes];
 	cout << "Introduce el nuevo descuento para los clientes habituales: ";
 	cin >> nuevoDescuento;
-	aux = Clientes->nuevoDescuento(nuevoDescuento);//ir aplicando solo a los habituales
-	if (aux == true) {
-		cout << "Descuento modificado correctamente.";
+	for (int i = 0; i < maxNumClientes; i++) {
+		if (Clientes[i].ObtenerTipoCliente() == 0) {
+			aux[i]=Clientes[i].nuevoDescuento(nuevoDescuento);
+		}
 	}
-	else {
-		cout << "Descuento NO modificado.";
+	for (int j = 0; j < maxNumClientes; j++) {
+		if (aux[j] == false) {
+			cout << "Descuento NO modificado."<<endl;
+		}
 	}
+	cout << "Descuento modificado correctamente."<<endl;
 }
 
 

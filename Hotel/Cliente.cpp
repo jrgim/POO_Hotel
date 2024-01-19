@@ -52,5 +52,6 @@ float Cliente::aplicarDescuento(float precio) {
 	return precioTotal;
 }
 bool Cliente::nuevoDescuento(int nuevoDescuento) {
-	return false;
+	descuento = nuevoDescuento;
+	return true;
 }

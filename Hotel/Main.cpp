@@ -69,12 +69,12 @@ int main() {
 				cout << " tiene un descuento de: " << hotel.consultarDescuento(clientAux) << "%\n" << endl;
 			}
 			else if (opcDos == 1) {//Modificar descuento
-
+				hotel.modificarDescuento();
 			}
 			break;
 		case 4: //Consultar precio total de un cliente
 			clientAux = hotel.buscarCliente();
-			hotel.precioTotal(clientAux);				//Queda quitar el descuento!!!!
+			hotel.precioTotal(clientAux);
 			break;
 		case 5: //Nueva reserva
 			hotel.reservarHabitacion();
